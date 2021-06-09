@@ -82,6 +82,81 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/map',
+    component: Layout,
+    redirect: '/map/getMapzoom',
+    name: '地图属性',
+    meta: {title: '地图属性', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'get-mapzoom',
+        name: '获取地图中心点/级别',
+        component: () => import('@/views/map/getMapzoom'),
+        meta: {title: '获取地图中心点/级别', icon: 'table'}
+      },
+      {
+        path: 'change-map-center',
+        name: '设置地图级别与中心点',
+        component: () => import('@/views/map/changeMapCenter'),
+        meta: {title: '设置地图级别与中心点', icon: 'tree'}
+      },
+      {
+        path: 'get-current-administrative-region',
+        name: '获取地图当前行政区',
+        component: () => import('@/views/map/getCurrentAdministrativeRegion'),
+        meta: {title: '获取地图当前行政区', icon: 'tree'}
+      },
+      {
+        path: 'set-center-according-to-map-name',
+        name: '设置地图当前行政区',
+        component: () => import('@/views/map/setCenterAccordingToMapName'),
+        meta: {title: '设置地图当前行政区', icon: 'tree'}
+      },
+      {
+        path: 'map-bounds',
+        name: '设置/获取地图显示范围',
+        component: () => import('@/views/map/mapBounds'),
+        meta: {title: '设置/获取地图显示范围', icon: 'tree'}
+      },
+      {
+        path: 'limit-map-show-range',
+        name: '限制地图显示范围',
+        component: () => import('@/views/map/limitMapShowRange'),
+        meta: {title: '限制地图显示范围', icon: 'tree'}
+      },
+      {
+        path: 'map-moving',
+        name: '地图的平移',
+        component: () => import('@/views/map/mapMoving'),
+        meta: {title: '地图的平移', icon: 'tree'}
+      },
+      {
+        path: 'set-map-status',
+        name: '交互控制',
+        component: () => import('@/views/map/setMapStatus'),
+        meta: {title: '交互控制', icon: 'tree'}
+      },
+      {
+        path: 'click-to-get-lnglat',
+        name: '获取鼠标点击经纬度',
+        component: () => import('@/views/map/clickToGetLnglat'),
+        meta: {title: '获取鼠标点击经纬度', icon: 'tree'}
+      },
+      {
+        path: 'hotspot',
+        name: '地图的热点',
+        component: () => import('@/views/map/hotspot'),
+        meta: {title: '地图的热点', icon: 'tree'}
+      },
+      {
+        path: 'set-mouse-style-on-the-map',
+        name: '设置鼠标样式',
+        component: () => import('@/views/map/setMouseStyleOnTheMap'),
+        meta: {title: '设置鼠标样式', icon: 'tree'}
+      }
+    ]
+  },
 
   {
     path: '/form',
