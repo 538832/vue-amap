@@ -104,7 +104,7 @@
         if (this.controlBarStatus) {
           this.controlBar.show()
         } else {
-          this.controlBar.remove()
+          this.controlBar.hide()
         }
       },
       changeOverViewStatus() {
