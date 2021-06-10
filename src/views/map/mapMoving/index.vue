@@ -25,7 +25,7 @@
       // 当浏览器被重置大小时执行
       window.onresize = () => {
         return (() => {
-          this.windowHeight = document.documentElement.clientHeight - 50;
+          this.windowHeight = document.documentElement.clientHeight;
         })()
       };
       //调用地图初始化方法

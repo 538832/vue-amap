@@ -82,6 +82,7 @@ export const constantRoutes = [
       }
     ]
   },
+  /* 地图属性 */
   {
     path: '/map',
     component: Layout,
@@ -155,6 +156,34 @@ export const constantRoutes = [
         component: () => import('@/views/map/setMouseStyleOnTheMap'),
         meta: {title: '设置鼠标样式', icon: 'tree'}
       }
+    ]
+  },
+  /* 覆盖物与图层管理 */
+  {
+    path: '/map-componets',
+    component: Layout,
+    redirect: '/mapComponets/mapOverlays',
+    name: '覆盖物与图层管理',
+    meta: {title: '覆盖物与图层管理', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'map-overlays',
+        name: '覆盖物的添加与移除',
+        component: () => import('@/views/mapComponets/mapOverlays'),
+        meta: {title: '覆盖物的添加与移除', icon: 'table'}
+      },
+      {
+        path: 'map-layers',
+        name: '图层的添加与移除',
+        component: () => import('@/views/mapComponets/mapLayers'),
+        meta: {title: '图层的添加与移除', icon: 'table'}
+      },
+      {
+        path: 'map-with-function-control',
+        name: '地图控件',
+        component: () => import('@/views/mapComponets/mapWithFunctionControl'),
+        meta: {title: '地图控件', icon: 'table'}
+      },
     ]
   },
 
