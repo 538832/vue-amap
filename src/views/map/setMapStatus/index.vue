@@ -44,31 +44,20 @@
       initAMap() {
         let that = this
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: that.zoom, //初始地图级别
-              center: [that.center.lng, that.center.lat], //初始地图中心点
-            });
-            that.map = map
+        let map = new AMap.Map('container', {
+          zoom: that.zoom, //初始地图级别
+          center: [that.center.lng, that.center.lat], //初始地图中心点
+        });
 
-            //通过map.setStatus方法动态设置地图状态
-            that.map.setStatus({
-              dragEnable: true,
-              keyboardEnable: true,
-              doubleClickZoom: true,
-              zoomEnable: true,
-              rotateEnable: true
-            });
-            that.mapStatus = that.map.getStatus()
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        //通过map.setStatus方法动态设置地图状态
+        map.setStatus({
+          dragEnable: true,
+          keyboardEnable: true,
+          doubleClickZoom: true,
+          zoomEnable: true,
+          rotateEnable: true
+        });
+        that.mapStatus = map.getStatus()
       }
     }
   }

@@ -7,7 +7,6 @@
     name: "index",
     data() {
       return {
-        map: null,
         //实时屏幕高度
         windowHeight: document.documentElement.clientHeight
       }
@@ -24,20 +23,7 @@
     },
     methods: {
       initAMap() {
-        let that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container');
-            that.map = map
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        let map = new AMap.Map('container');
       }
     }
   }

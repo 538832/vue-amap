@@ -14,7 +14,6 @@
     name: "index",
     data() {
       return {
-        map: null,
         //实时屏幕高度
         windowHeight: document.documentElement.clientHeight,
         //地图级别
@@ -39,36 +38,25 @@
     methods: {
       initAMap() {
         let that = this
+        //初始化地图
+        let map = new AMap.Map('container', {
+          zoom: 11, //初始地图级别
+          center: [121.498586, 31.239637], //初始地图中心点
+        });
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: that.zoom, //初始地图级别
-              center: [that.center.lng, that.center.lat], //初始地图中心点
-            });
-            that.map = map
-            //绑定地图移动事件
-            AMap.event.addListener(that.map, 'moveend', function () { //添加点击事件,传入对象名，事件名，回调函数
-              that.zoom = that.map.getZoom();
-              that.center.lng = that.map.getCenter().lng;
-              that.center.lat = that.map.getCenter().lat;
-            })
+        //绑定地图移动事件
+        map.on('moveend', function () {
+          that.zoom = map.getZoom();
+          that.center.lng = map.getCenter().lng;
+          that.center.lat = map.getCenter().lat;
+        })
 
-            //绑定地图缩放事件
-            AMap.event.addListener(that.map, 'zoomend', function () { //添加点击事件,传入对象名，事件名，回调函数
-              that.zoom = that.map.getZoom();
-              that.center.lng = that.map.getCenter().lng;
-              that.center.lat = that.map.getCenter().lat;
-            })
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
-
+        //绑定地图缩放事件
+        map.on('zoomend', function () {
+          that.zoom = map.getZoom();
+          that.center.lng = map.getCenter().lng;
+          that.center.lat = map.getCenter().lat;
+        })
 
 
       }

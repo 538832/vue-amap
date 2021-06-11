@@ -31,20 +31,7 @@
     },
     methods: {
       initAMap() {
-        let that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container');
-            that.map = map
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        this.map = new AMap.Map('container');
       },
 
       //创建地图

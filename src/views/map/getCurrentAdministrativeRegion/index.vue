@@ -43,27 +43,14 @@
     methods: {
       initAMap() {
         let that = this
+        that.map = new AMap.Map('container', {
+          zoom: that.zoom, //初始地图级别
+          center: [that.center.lng, that.center.lat], //初始地图中心点
+        });
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: that.zoom, //初始地图级别
-              center: [that.center.lng, that.center.lat], //初始地图中心点
-            });
-            that.map = map
-
-            //绑定地图移动事件
-            AMap.event.addListener(that.map, 'moveend', that.logMapinfo)
-            //调用 第一次加载
-            that.logMapinfo();
-
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-        isLoaded()
+        that.map.on(that.map, 'moveend', that.logMapinfo)
+        //调用 第一次加载
+        that.logMapinfo();
       },
 
       //获取当前城市信息复制给mapCity, 通过 <pre> 标签展示
@@ -95,9 +82,5 @@
     background: white;
     width: 300px;
     padding: 0 20px;
-  }
-
-  #map-zoom, #map-center {
-    color: #0288d1;
   }
 </style>

@@ -40,49 +40,38 @@
     },
     methods: {
       initAMap() {
-        var that = this
+        //控件
+        this.scale = new AMap.Scale();
 
-        function isLoaded() {
-          try {
-            //控件
-            that.scale = new AMap.Scale();
-            that.toolBar = new AMap.ToolBar({
-              position: {
-                top: '110px',
-                right: '100px'
-              }
-            });
-            that.controlBar = new AMap.ControlBar({
-              position: {
-                top: '10px',
-                right: '10px'
-              }
-            });
-            // TODO: 添加后无法显示页面 不报错
-            // that.overView = new AMap.HawkEye({
-            //   opened: false
-            // });
-
-            that.map = new AMap.Map("container", {
-              viewMode: '3D',
-              zoom: 11,
-              pitch: 30
-            });
-
-
-            that.map.addControl(that.scale);
-            that.map.addControl(that.toolBar);
-            that.map.addControl(that.controlBar);
-            //that.map.addControl(that.overView);
-
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
+        this.toolBar = new AMap.ToolBar({
+          position: {
+            top: '110px',
+            right: '40px'
           }
-        }
+        });
 
-        isLoaded()
+        this.controlBar = new AMap.ControlBar({
+          position: {
+            top: '10px',
+            right: '10px'
+          }
+        });
+
+        this.overView = new AMap.HawkEye({
+          opened: false
+        });
+
+        this.map = new AMap.Map("container", {
+          viewMode: '3D',
+          zoom: 11,
+          pitch: 30
+        });
+
+        //给地图添加控件
+        this.map.addControl(this.scale);
+        this.map.addControl(this.toolBar);
+        this.map.addControl(this.controlBar);
+        this.map.addControl(this.overView);
       },
       changeScaleStatus() {
         if (this.scaleStatus) {
@@ -99,7 +88,6 @@
           this.toolBar.hide()
         }
       },
-      //TODO: 不知道为啥报错
       changeControlBarStatus() {
         if (this.controlBarStatus) {
           this.controlBar.show()
@@ -141,6 +129,5 @@
   .input-item .control {
     display: block;
     padding: 5px 20px 10px;
-
   }
 </style>

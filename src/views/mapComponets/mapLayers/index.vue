@@ -44,29 +44,17 @@
     },
     methods: {
       initAMap() {
-        var that = this
+        this.map = new AMap.Map('container', {
+          zoom: 11,
+          center: [116.405285, 39.904989]
+        });
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: 11,
-              center: [116.405285, 39.904989]
-            });
-            that.map = map;
-            // 构造官方卫星、路网图层
-            that.satelliteLayer = new AMap.TileLayer.Satellite();
-            that.roadNetLayer = new AMap.TileLayer.RoadNet();
+        // 构造官方卫星、路网图层
+        this.satelliteLayer = new AMap.TileLayer.Satellite();
+        this.roadNetLayer = new AMap.TileLayer.RoadNet();
 
-            //批量添加图层
-            that.map.add([that.satelliteLayer, that.roadNetLayer]);
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        //批量添加图层
+        this.map.add([this.satelliteLayer, this.roadNetLayer]);
       },
 
       //添加卫星图层
@@ -110,6 +98,7 @@
     right: 30px;
     bottom: 30px;
   }
+
   .input-item .item {
     margin: 10px 0px;
   }

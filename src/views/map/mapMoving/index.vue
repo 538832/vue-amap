@@ -33,23 +33,10 @@
     },
     methods: {
       initAMap() {
-        var that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: 13,
-              center: [116.397428, 39.90923]
-            });
-            that.map = map
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        this.map = new AMap.Map('container', {
+          zoom: 13,
+          center: [116.397428, 39.90923]
+        });
       },
       panBy() {
         this.map.panBy(50, 100);

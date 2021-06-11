@@ -40,35 +40,26 @@
     methods: {
       initAMap() {
         let that = this
+        that.map = new AMap.Map('container', {
+          zoom: that.zoom, //初始地图级别
+          center: [that.center.lng, that.center.lat], //初始地图中心点
+        });
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: that.zoom, //初始地图级别
-              center: [that.center.lng, that.center.lat], //初始地图中心点
-            });
-            that.map = map
-            //绑定地图移动事件
-            AMap.event.addListener(that.map, 'moveend', function () { //添加点击事件,传入对象名，事件名，回调函数
-              that.zoom = that.map.getZoom();
-              that.center.lng = that.map.getCenter().lng;
-              that.center.lat = that.map.getCenter().lat;
-            })
+        //绑定地图移动事件
+        //AMap.event.addListener(that.map, 'moveend', function () { //添加点击事件,传入对象名，事件名，回调函数
+        that.map.on('moveend', function () {
+          that.zoom = that.map.getZoom();
+          that.center.lng = that.map.getCenter().lng;
+          that.center.lat = that.map.getCenter().lat;
+        })
 
-            //绑定地图缩放事件
-            AMap.event.addListener(that.map, 'zoomend', function () { //添加点击事件,传入对象名，事件名，回调函数
-              that.zoom = that.map.getZoom();
-              that.center.lng = that.map.getCenter().lng;
-              that.center.lat = that.map.getCenter().lat;
-            })
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        //绑定地图缩放事件
+        //AMap.event.addListener(that.map, 'zoomend', function () { //添加点击事件,传入对象名，事件名，回调函数
+        that.map.on('zoomend', function () {
+          that.zoom = that.map.getZoom();
+          that.center.lng = that.map.getCenter().lng;
+          that.center.lat = that.map.getCenter().lat;
+        })
 
 
       },

@@ -35,27 +35,11 @@
     },
     methods: {
       initAMap() {
-        var that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: 11,
-            });
-            that.map = map;
-
-            //使用CSS默认样式定义地图上的鼠标样式
-            that.map.setDefaultCursor("pointer");
-
-
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        this.map = new AMap.Map('container', {
+          zoom: 11,
+        });
+        //使用CSS默认样式定义地图上的鼠标样式
+        this.map.setDefaultCursor("pointer");
       },
       //自定义鼠标样式图标
       switchCursor() {

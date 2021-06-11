@@ -40,22 +40,10 @@
     methods: {
       initAMap() {
         let that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: that.zoom, //初始地图级别
-              center: [that.center.lng, that.center.lat], //初始地图中心点
-            });
-            that.map = map
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        that.map = new AMap.Map('container', {
+          zoom: that.zoom, //初始地图级别
+          center: [that.center.lng, that.center.lat], //初始地图中心点
+        });
       },
 
       // 随机改变地图层级
@@ -63,9 +51,7 @@
         if (this.cityName == '') {
           this.cityName = "北京市";
         }
-        console.log(this.cityName)
         this.map.setCity(this.cityName);
-        //log.info(`已跳转至${val}`);
         this.$message('已跳转至: ' + this.cityName)
       }
     }

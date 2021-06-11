@@ -31,26 +31,15 @@
     },
     methods: {
       initAMap() {
-        var that = this
+        let that = this;
+        let map = new AMap.Map('container', {
+          zoom: 11,
+        });
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: 11,
-            });
-            that.map = map;
-            //绑定地图移动事件
-            AMap.event.addListener(that.map, 'click', function (e) {
-              that.lnglat = e.lnglat.getLng() + ',' + e.lnglat.getLat();
-            })
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        //绑定地图移动事件
+        map.on('click', function (e) {
+          that.lnglat = e.lnglat.getLng() + ',' + e.lnglat.getLat();
+        })
       }
     }
   }

@@ -29,36 +29,25 @@
     },
     methods: {
       initAMap() {
-        var that = this
+        let that = this
+        that.map = new AMap.Map('container', {
+          resizeEnable: true,
+          center: [116.397428, 39.90923],
+          zoom: 13,
+          isHotspot: true
+        });
+        that.placeSearch = new AMap.PlaceSearch();  //构造地点查询类
+        that.infoWindow = new AMap.InfoWindow({});
 
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              resizeEnable: true,
-              center: [116.397428, 39.90923],
-              zoom: 13,
-              isHotspot: true
-            });
-            that.map = map;
-            that.placeSearch = new AMap.PlaceSearch();  //构造地点查询类
-            that.infoWindow = new AMap.InfoWindow({});
-
-            AMap.event.addListener(that.map, 'hotspotover', function (result) {
-              that.placeSearch.getDetails(result.id, function (status, result) {
-                if (status === 'complete' && result.info === 'OK') {
-                  that.placeSearchCallBack(result);
-                }
-              });
-            })
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        that.map.on('hotspotover', function (result) {
+          that.placeSearch.getDetails(result.id, function (status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+              that.placeSearchCallBack(result);
+            }
+          });
+        })
       },
+
       //回调函数
       placeSearchCallBack(data) {
         var poiArr = data.poiList.pois;
@@ -66,6 +55,7 @@
         this.infoWindow.setContent(this.createContent(poiArr[0]));
         this.infoWindow.open(this.map, location);
       },
+
       //信息窗体内容
       createContent(poi) {
         var s = [];

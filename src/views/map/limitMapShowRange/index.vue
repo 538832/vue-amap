@@ -3,8 +3,8 @@
     <div id="container"></div>
     <div id="info">
       <h4>当前地图显示范围（Bounds）</h4>
-      <p>NorthEast坐标：<span v-text="northEast.toString()"></span></p>
-      <p>SouthWest坐标：<span v-text="southWest.toString()"></span></p>
+      <p>NorthEast坐标：<span v-text="northEast"></span></p>
+      <p>SouthWest坐标：<span v-text="southWest"></span></p>
     </div>
     <div class="input-item">
       <h5>控制地图显示范围</h5>
@@ -22,8 +22,8 @@
         map: null,
         //实时屏幕高度
         windowHeight: document.documentElement.clientHeight,
-        northEast: [],
-        southWest: []
+        northEast: null,
+        southWest: null
       }
     },
     mounted() {
@@ -38,36 +38,23 @@
     },
     methods: {
       initAMap() {
-        var that = this
-
-        function isLoaded() {
-          try {
-            var map = new AMap.Map('container', {
-              zoom: 11,
-              showIndoorMap: false
-            });
-            that.map = map
-            //启用地图范围限定
-            that.lockMapBounds();
-            that.logMapInfo();
-          } catch (e) {
-            setTimeout(() => {
-              isLoaded()
-            }, 50)
-          }
-        }
-
-        isLoaded()
+        this.map = new AMap.Map('container', {
+          zoom: 11,
+          showIndoorMap: false
+        });
+        //启用地图范围限定
+        this.lockMapBounds();
+        this.logMapInfo();
       },
 
       logMapInfo() {
         var limitBounds = this.map.getLimitBounds();
         if (limitBounds) {
-          this.northEast = limitBounds.northeast;
-          this.southWest = limitBounds.southwest;
+          this.northEast = limitBounds.northEast;
+          this.southWest = limitBounds.southWest;
         } else {
-          this.northEast = ['未定义'];
-          this.southWest = ['未定义'];
+          this.northEast = '未定义';
+          this.southWest = '未定义';
         }
       },
       //限制地图显示范围
