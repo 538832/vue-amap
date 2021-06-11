@@ -16,14 +16,13 @@ import '@/icons' // icon
 import '@/permission' // permission control
 
 // 高德地图
+/*
 import AMapLoader from '@amap/amap-jsapi-loader';
-
 Vue.use(AMapLoader)
-
 AMapLoader.load({
   key: "4056aa1b76794cdb8df1d5ee0000bdb8",              // 申请好的Web端开发者Key，首次调用 load 时必填
   version: "1.4.15",   // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-  plugins: ['AMap.Map', 'AMap.Control', 'AMap.ToolBar', 'AMap.ControlBar', 'AMap.Scale', 'AMap.MapType', 'AMap.HawkEye', 'AMap.PlaceSearch', 'AMap.InfoWindow'],           // 需要使用的的插件列表，如比例尺'AMap.Scale'等
+  plugins: ['AMap.Map', 'AMap.Control', 'AMap.ToolBar', 'AMap.ControlBar', 'AMap.Scale', 'AMap.MapType', 'AMap.HawkEye', 'AMap.PlaceSearch', 'AMap.InfoWindow', 'AMap.Polygon'],           // 需要使用的的插件列表，如比例尺'AMap.Scale'等
   AMapUI: {             // 是否加载 AMapUI，缺省不加载
     version: '1.1',   // AMapUI 缺省 1.1
     plugins: []       // 需要加载的 AMapUI ui插件
@@ -34,6 +33,7 @@ AMapLoader.load({
 }).then((AMap) => {
   Vue.use(AMap)
 })
+*/
 
 
 /**
