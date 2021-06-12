@@ -226,6 +226,34 @@ export const constantRoutes = [
       }
     ]
   },
+  /* 自定义地图样式 */
+  {
+    path: '/map3d',
+    component: Layout,
+    redirect: '3d/map3d',
+    name: '三维地图',
+    meta: {title: '三维地图', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'mdp3d',
+        name: '3D地图',
+        component: () => import('@/views/3d/map3d'),
+        meta: {title: '3D地图', icon: 'table'}
+      },
+      {
+        path: 'fixed-view',
+        name: '固定视角',
+        component: () => import('@/views/3d/fixedView'),
+        meta: {title: '固定视角', icon: 'table'}
+      },
+      {
+        path: 'mask',
+        name: '区域掩模',
+        component: () => import('@/views/3d/mask'),
+        meta: {title: '区域掩模', icon: 'table'}
+      },
+    ]
+  },
   {
     path: 'external-link',
     component: Layout,
