@@ -186,79 +186,46 @@ export const constantRoutes = [
       },
     ]
   },
-
+  /* 自定义地图样式 */
   {
-    path: '/form',
+    path: '/personalized-map',
     component: Layout,
+    redirect: 'personalizedMap/customStyle',
+    name: '自定义地图样式',
+    meta: {title: '自定义地图样式', icon: 'el-icon-s-help'},
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: {title: 'Form', icon: 'form'}
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: {title: 'Menu1'},
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: {title: 'Menu1-1'}
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: {title: 'Menu1-2'},
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: {title: 'Menu1-2-1'}
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: {title: 'Menu1-2-2'}
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: {title: 'Menu1-3'}
-          }
-        ]
+        path: 'custom-style',
+        name: '自定义地图',
+        component: () => import('@/views/personalizedMap/customStyle'),
+        meta: {title: '自定义地图', icon: 'table'}
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: {title: 'menu2'}
+        path: 'building-style',
+        name: '设置楼块样式',
+        component: () => import('@/views/personalizedMap/buildingStyle'),
+        meta: {title: '设置楼块样式', icon: 'table'}
+      },
+      {
+        path: 'setTheme-style',
+        name: '标准样式主题',
+        component: () => import('@/views/personalizedMap/setThemeStyle'),
+        meta: {title: '标准样式主题', icon: 'table'}
+      },
+      {
+        path: 'set-map-cotent',
+        name: '地图显示要素',
+        component: () => import('@/views/personalizedMap/setMapCotent'),
+        meta: {title: '地图显示要素', icon: 'table'}
+      },
+      {
+        path: 'map-showlabel',
+        name: '隐藏文字标注',
+        component: () => import('@/views/personalizedMap/mapShowlabel'),
+        meta: {title: '隐藏文字标注', icon: 'table'}
       }
     ]
   },
-
   {
     path: 'external-link',
     component: Layout,
