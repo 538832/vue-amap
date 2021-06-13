@@ -360,6 +360,26 @@ export const constantRoutes = [
         meta: {title: '信息窗体打开关闭事件', icon: 'table'}
       }
     ]
+  }, {
+    path: '/event-other',
+    component: Layout,
+    redirect: '/event-other',
+    name: '其他事件',
+    meta: {title: '其他事件', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'dom-event',
+        name: 'DOM事件',
+        component: () => import('@/views/eventOther/domEvent'),
+        meta: {title: 'DOM事件', icon: 'table'}
+      },
+      {
+        path: 'custom-event',
+        name: '自定义事件',
+        component: () => import('@/views/eventOther/customEvent'),
+        meta: {title: '自定义事件', icon: 'table'}
+      }
+    ]
   },
   {
     path: 'external-link',
