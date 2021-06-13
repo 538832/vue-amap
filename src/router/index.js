@@ -256,7 +256,7 @@ export const constantRoutes = [
   {
     path: '/axis',
     component: Layout,
-    redirect: 'transformateBetweenCoordinatesOfLnglatAndMapContainer',
+    redirect: '/axis/transformateBetweenCoordinatesOfLnglatAndMapContainer',
     name: '坐标系转换',
     meta: {title: '坐标系转换', icon: 'el-icon-s-help'},
     children: [
@@ -271,6 +271,27 @@ export const constantRoutes = [
         name: '经纬度 <-> 平面像素坐标',
         component: () => import('@/views/axis/transformateBetweenCoordinatesOfLnglatAndGeographicalPixels'),
         meta: {title: '经纬度 <-> 平面像素坐标', icon: 'table'}
+      }
+    ]
+  },
+  {
+    path: '/other-gaode',
+    component: Layout,
+    redirect: '/other-gaode/othertoamap',
+    name: '其他坐标转高德坐标',
+    meta: {title: '其他坐标转高德坐标', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'othertoamap',
+        name: '其他坐标 -> 高德坐标',
+        component: () => import('@/views/otherGaode/othertoamap'),
+        meta: {title: '其他坐标 -> 高德坐标', icon: 'table'}
+      },
+      {
+        path: 'othertoamap-more',
+        name: '其他坐标 -> 高德坐标 （批量）',
+        component: () => import('@/views/otherGaode/othertoamapMore'),
+        meta: {title: '其他坐标 -> 高德坐标 （批量）', icon: 'table'}
       }
     ]
   },
