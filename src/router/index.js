@@ -296,6 +296,45 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/event',
+    component: Layout,
+    redirect: '/map-loading-complete-event',
+    name: '地图事件',
+    meta: {title: '地图事件', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'othertoamap',
+        name: '地图加载完成事件',
+        component: () => import('@/views/event/mapLoadingCompleteEvent'),
+        meta: {title: '地图加载完成事件', icon: 'table'}
+      },
+      {
+        path: 'event-state',
+        name: '地图移动相关事件',
+        component: () => import('@/views/event/eventState'),
+        meta: {title: '地图移动相关事件', icon: 'table'}
+      },
+      {
+        path: 'event-map-zoom',
+        name: '地图缩放相关事件',
+        component: () => import('@/views/event/eventMapZoom'),
+        meta: {title: '地图缩放相关事件', icon: 'table'}
+      },
+      {
+        path: 'map-click-event',
+        name: '地图点击和鼠标事件',
+        component: () => import('@/views/event/mapClickEvent'),
+        meta: {title: '地图点击和鼠标事件', icon: 'table'}
+      },
+      {
+        path: 'event-map-drag',
+        name: '地图拖拽相关事件',
+        component: () => import('@/views/event/eventMapDrag'),
+        meta: {title: '地图拖拽相关事件', icon: 'table'}
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
