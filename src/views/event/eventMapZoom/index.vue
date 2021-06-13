@@ -48,6 +48,7 @@
         this.map.on('movestart', this.mapZoomstart);
         this.map.on('mapmove', this.mapZoom);
         this.map.on('moveend', this.mapZoomEnd);
+        this.$message('绑定事件');
       },
 
       // 解绑事件
@@ -55,6 +56,7 @@
         this.map.off('movestart', this.mapZoomstart);
         this.map.off('mapmove', this.mapZoom);
         this.map.off('moveend', this.mapZoomEnd);
+        this.$message('解除绑定事件');
       },
 
       mapZoomstart() {

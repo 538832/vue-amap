@@ -45,7 +45,7 @@
         this.map.on('click', this.showInfoClick);
         this.map.on('dblclick', this.showInfoDbClick);
         this.map.on('mousemove', this.showInfoMove);
-
+        this.$message('绑定事件');
       },
 
       // 解绑事件
@@ -53,6 +53,7 @@
         this.map.off('click', this.showInfoClick);
         this.map.off('dblclick', this.showInfoDbClick);
         this.map.off('mousemove', this.showInfoMove);
+        this.$message('解除绑定事件');
       },
 
       showInfoClick(e) {

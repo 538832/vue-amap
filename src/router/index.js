@@ -335,6 +335,33 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/event-overlay',
+    component: Layout,
+    redirect: '/event-overlay',
+    name: '覆盖物事件',
+    meta: {title: '覆盖物事件', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'overlayer-event',
+        name: '覆盖物点击和鼠标事件',
+        component: () => import('@/views/eventOverlay/overlayerEvent'),
+        meta: {title: '覆盖物点击和鼠标事件', icon: 'table'}
+      },
+      {
+        path: 'event-overlay-drag',
+        name: '覆盖物拖拽相关事件',
+        component: () => import('@/views/eventOverlay/eventOverlayDrag'),
+        meta: {title: '覆盖物拖拽相关事件', icon: 'table'}
+      },
+      {
+        path: 'infowindow-event',
+        name: '信息窗体打开关闭事件',
+        component: () => import('@/views/eventOverlay/infowindowEvent'),
+        meta: {title: '信息窗体打开关闭事件', icon: 'table'}
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [

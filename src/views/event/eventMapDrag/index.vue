@@ -45,7 +45,7 @@
         this.map.on('dragstart', this.showInfoDragstart);
         this.map.on('dragging', this.showInfoDragging);
         this.map.on('dragend', this.showInfoDragend);
-
+        this.$message('绑定事件');
       },
 
       // 解绑事件
@@ -53,6 +53,7 @@
         this.map.off('dragstart', this.showInfoDragstart);
         this.map.off('dragging', this.showInfoDragging);
         this.map.off('dragend', this.showInfoDragend);
+        this.$message('解除绑定事件');
       },
 
       showInfoDragstart(e) {
