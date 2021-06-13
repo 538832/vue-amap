@@ -226,7 +226,6 @@ export const constantRoutes = [
       }
     ]
   },
-  /* 自定义地图样式 */
   {
     path: '/map3d',
     component: Layout,
@@ -252,6 +251,27 @@ export const constantRoutes = [
         component: () => import('@/views/3d/mask'),
         meta: {title: '区域掩模', icon: 'table'}
       },
+    ]
+  },
+  {
+    path: '/axis',
+    component: Layout,
+    redirect: 'transformateBetweenCoordinatesOfLnglatAndMapContainer',
+    name: '坐标系转换',
+    meta: {title: '坐标系转换', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'transformate-between-coordinates-of-lnglat-and-map-container',
+        name: '经纬度 <-> 地图容器像素坐标',
+        component: () => import('@/views/axis/transformateBetweenCoordinatesOfLnglatAndMapContainer'),
+        meta: {title: '经纬度 <-> 地图容器像素坐标', icon: 'table'}
+      },
+      {
+        path: 'transformate-between-coordinates-of-lnglat-and-geographical-pixels',
+        name: '经纬度 <-> 平面像素坐标',
+        component: () => import('@/views/axis/transformateBetweenCoordinatesOfLnglatAndGeographicalPixels'),
+        meta: {title: '经纬度 <-> 平面像素坐标', icon: 'table'}
+      }
     ]
   },
   {
