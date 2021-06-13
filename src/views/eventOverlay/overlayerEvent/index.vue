@@ -65,13 +65,13 @@
           fillColor: "#FFA500", //填充色
           fillOpacity: 0.35//填充透明度
         });
+        that.map.add( that.circle);
         /*
-          TODO: 官网案例上的圆也没有加载出来, 查看JSAPI2.0，构造中并没有map这一项，而在1.4.15中存在这一项，后期反馈给高德地图(2021/6/13)
-          2.0连接：https://lbs.amap.com/api/jsapi-v2/documentation#circle
-          1.4.15连接：https://lbs.amap.com/api/javascript-api/reference/overlay#circle
+          TODO: 官网案例上的圆也没有加载出来, 查看JSAPI2.0，构造中并没有map这一项，而在JSAPI1.4.15中存在这一项，后期反馈给高德地图(2021/6/13)
+          JSAPI2.0链接：https://lbs.amap.com/api/jsapi-v2/documentation#circle
+          JSAPI1.4.15链接：https://lbs.amap.com/api/javascript-api/reference/overlay#circle
           通过map.add()方法可解决
          */
-        that.map.add( that.circle);
 
         let polygonArr = [[116.403322, 39.920255],
           [116.410703, 39.897555],
