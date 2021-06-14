@@ -416,6 +416,45 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/layers',
+    component: Layout,
+    redirect: '/layers',
+    name: '高德官方图层',
+    meta: {title: '高德官方图层', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'layergroup',
+        name: '默认标准图层',
+        component: () => import('@/views/layers/default'),
+        meta: {title: '默认标准图层', icon: 'table'}
+      },
+      {
+        path: 'trafffic',
+        name: '实时路况图层',
+        component: () => import('@/views/layers/trafffic'),
+        meta: {title: '实时路况图层', icon: 'table'}
+      },
+      {
+        path: 'satellite',
+        name: '卫星图',
+        component: () => import('@/views/layers/satellite'),
+        meta: {title: '卫星图', icon: 'table'}
+      },
+      {
+        path: 'roadnet',
+        name: '卫星和路网',
+        component: () => import('@/views/layers/roadnet'),
+        meta: {title: '卫星和路网', icon: 'table'}
+      },
+      {
+        path: 'buildings',
+        name: '楼块图层',
+        component: () => import('@/views/layers/buildings'),
+        meta: {title: '楼块图层', icon: 'table'}
+      },
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
