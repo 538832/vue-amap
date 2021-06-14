@@ -360,7 +360,8 @@ export const constantRoutes = [
         meta: {title: '信息窗体打开关闭事件', icon: 'table'}
       }
     ]
-  }, {
+  },
+  {
     path: '/event-other',
     component: Layout,
     redirect: '/event-other',
@@ -378,6 +379,39 @@ export const constantRoutes = [
         name: '自定义事件',
         component: () => import('@/views/eventOther/customEvent'),
         meta: {title: '自定义事件', icon: 'table'}
+      }
+    ]
+  },
+  {
+    path: '/layer-common',
+    component: Layout,
+    redirect: '/layer-common',
+    name: '图层通用接口',
+    meta: {title: '图层通用接口', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'layergroup',
+        name: '批量修改图层',
+        component: () => import('@/views/layerCommon/layergroup'),
+        meta: {title: '批量修改图层', icon: 'table'}
+      },
+      {
+        path: 'layer-add-rm',
+        name: '图层添加与移除',
+        component: () => import('@/views/layerCommon/layerAddRm'),
+        meta: {title: '图层添加与移除', icon: 'table'}
+      },
+      {
+        path: 'layer-zindex',
+        name: '层级设定',
+        component: () => import('@/views/layerCommon/layerZindex'),
+        meta: {title: '层级设定', icon: 'table'}
+      },
+      {
+        path: 'layer-opacity',
+        name: '图层透明度',
+        component: () => import('@/views/layerCommon/layerOpacity'),
+        meta: {title: '图层透明度', icon: 'table'}
       }
     ]
   },
