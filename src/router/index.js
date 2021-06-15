@@ -455,6 +455,57 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/district',
+    component: Layout,
+    redirect: '/district/districtLabels',
+    name: '简易行政区图',
+    meta: {title: '简易行政区图', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'district-labels',
+        name: '简易行政区图+标注',
+        component: () => import('@/views/district/districtLabels'),
+        meta: {title: '简易行政区图+标注', icon: 'table'}
+      },
+      {
+        path: 'district-world',
+        name: '简易行政区图-世界',
+        component: () => import('@/views/district/districtWorld'),
+        meta: {title: '简易行政区图-世界', icon: 'table'}
+      },
+      {
+        path: 'district-chn',
+        name: '简易行政区图-中国',
+        component: () => import('@/views/district/districtChn'),
+        meta: {title: '简易行政区图-中国', icon: 'table'}
+      },
+      {
+        path: 'district-country',
+        name: '简易行政区图-外国',
+        component: () => import('@/views/district/districtCountry'),
+        meta: {title: '简易行政区图-外国', icon: 'table'}
+      },
+      {
+        path: 'district-pro',
+        name: '简易行政区图-省区',
+        component: () => import('@/views/district/districtPro'),
+        meta: {title: '简易行政区图-省区', icon: 'table'}
+      },
+      {
+        path: 'layer-switch',
+        name: '图层切换',
+        component: () => import('@/views/district/layerSwitch'),
+        meta: {title: '图层切换', icon: 'table'}
+      },
+      {
+        path: 'districtPick',
+        name: '行政区拾取+修改样式',
+        component: () => import('@/views/district/districtPick'),
+        meta: {title: '行政区拾取+修改样式', icon: 'table'}
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
