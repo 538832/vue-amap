@@ -411,7 +411,6 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
     path: '/layers',
     component: Layout,
@@ -489,38 +488,6 @@ export const constantRoutes = [
           },
         ]
       },
-   /*   {
-        path: 'layer-common',
-        component: () => import('@/views/layers/layerCommon/index'), // Parent router-view
-        name: '图层通用接口',
-        meta: {title: '图层通用接口', icon: 'el-icon-s-help'},
-        children: [
-          {
-            path: 'layergroup',
-            name: '批量修改图层',
-            component: () => import('@/views/layers/layerCommon/layergroup'),
-            meta: {title: '批量修改图层', icon: 'table'}
-          },
-          {
-            path: 'layer-add-rm',
-            name: '图层添加与移除',
-            component: () => import('@/views/layers/layerCommon/layerAddRm'),
-            meta: {title: '图层添加与移除', icon: 'table'}
-          },
-          {
-            path: 'layer-zindex',
-            name: '层级设定',
-            component: () => import('@/views/layers/layerCommon/layerZindex'),
-            meta: {title: '层级设定', icon: 'table'}
-          },
-          {
-            path: 'layer-opacity',
-            name: '图层透明度',
-            component: () => import('@/views/layers/layerCommon/layerOpacity'),
-            meta: {title: '图层透明度', icon: 'table'}
-          }
-        ]
-      },*/
       {
         path: 'district',
         component: () => import('@/views/layers/district/index'), // Parent router-view
@@ -695,6 +662,65 @@ export const constantRoutes = [
             component: () => import('@/views/layers/indoormap/indoormap'),
             meta: {title: '默认室内图层', icon: 'table'}
           },
+        ]
+      }
+    ]
+  },
+  {
+    path: '/coverings',
+    component: Layout,
+    redirect: '/coverings/common',
+    name: '覆盖物',
+    meta: {title: '覆盖物', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'common',
+        component: () => import('@/views/coverings/common/index'), // Parent router-view
+        name: '通用',
+        meta: {title: '通用', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'setfitview',
+            name: '根据覆盖物调整地图范围',
+            component: () => import('@/views/coverings/common/setfitview'),
+            meta: {title: '根据覆盖物调整地图范围', icon: 'table'}
+          },
+          {
+            path: 'add-several-overlay',
+            name: '添加一个或多个覆盖物',
+            component: () => import('@/views/coverings/common/addSeveralOverlay'),
+            meta: {title: '添加一个或多个覆盖物', icon: 'table'}
+          },
+          {
+            path: 'remove-overlay',
+            name: '移除一个或多个覆盖物',
+            component: () => import('@/views/coverings/common/removeOverlay'),
+            meta: {title: '移除一个或多个覆盖物', icon: 'table'}
+          },
+          {
+            path: 'overlay-clear',
+            name: '清除所有覆盖物',
+            component: () => import('@/views/coverings/common/overlayClear'),
+            meta: {title: '清除所有覆盖物', icon: 'table'}
+          },
+          {
+            path: 'get-all-overlays',
+            name: '获取某类覆盖物',
+            component: () => import('@/views/coverings/common/getAllOverlays'),
+            meta: {title: '获取某类覆盖物', icon: 'table'}
+          },
+          {
+            path: 'ext-data',
+            name: '获取某个覆盖物',
+            component: () => import('@/views/coverings/common/extData'),
+            meta: {title: '获取某个覆盖物', icon: 'table'}
+          },
+          {
+            path: 'cross-date-line-overlays',
+            name: '跨日期线绘制',
+            component: () => import('@/views/coverings/common/crossDateLineOverlays'),
+            meta: {title: '跨日期线绘制', icon: 'table'}
+          }
         ]
       }
     ]
