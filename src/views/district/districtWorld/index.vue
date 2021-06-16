@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import {districtWorld} from '@/utils/con_virus'
+  import {districtWorld} from '@/utils/amap/con_virus'
 
   export default {
     name: "index",

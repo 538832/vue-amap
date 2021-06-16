@@ -539,6 +539,102 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/selflayer',
+    component: Layout,
+    redirect: '/selflayer/imagelayer',
+    name: '自有数据图层',
+    meta: {title: '自有数据图层', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'imagelayer',
+        name: '图片图层',
+        component: () => import('@/views/selflayer/imagelayer'),
+        meta: {title: '图片图层', icon: 'table'}
+      },
+      {
+        path: 'canvaslayer',
+        name: 'Canvas图层',
+        component: () => import('@/views/selflayer/canvaslayer'),
+        meta: {title: 'Canvas图层', icon: 'table'}
+      },
+      {
+        path: 'heatmap',
+        name: '热力图',
+        component: () => import('@/views/selflayer/heatmap'),
+        meta: {title: '热力图', icon: 'table'}
+      },
+      {
+        path: 'heatmap-3d',
+        name: '3D 热力图',
+        component: () => import('@/views/selflayer/heatmap3d'),
+        meta: {title: '3D 热力图', icon: 'table'}
+      },
+      {
+        path: 'cus-svg',
+        name: '自定义图层-SVG',
+        component: () => import('@/views/selflayer/cusSvg'),
+        meta: {title: '自定义图层-SVG', icon: 'table'}
+      },
+      {
+        path: 'glcustom-layer',
+        name: '自定义图层-GLCustomLayer 结合 THREE',
+        component: () => import('@/views/selflayer/glcustomLayer'),
+        meta: {title: '自定义图层-GLCustomLayer 结合 THREE', icon: 'table'}
+      },
+      {
+        path: 'glcustomlayer-regl',
+        name: '自定义图层-GLCustomLayer 结合 ReGL',
+        component: () => import('@/views/selflayer/glcustomlayerRegl'),
+        meta: {title: '自定义图层-GLCustomLayer 结合 ReGL', icon: 'table'}
+      },
+      {
+        path: '3dtileslayer',
+        name: '3D Tiles 图层',
+        component: () => import('@/views/selflayer/3dtileslayer'),
+        meta: {title: '3D Tiles 图层', icon: 'table'}
+      },
+      {
+        path: 'custom-layer',
+        name: '自定义图层-Canvas',
+        component: () => import('@/views/selflayer/customLayer'),
+        meta: {title: '自定义图层-Canvas', icon: 'table'}
+      },
+      {
+        path: 'flex-canvas',
+        name: 'Canvas作为切片',
+        component: () => import('@/views/selflayer/flexCanvas'),
+        meta: {title: 'Canvas作为切片', icon: 'table'}
+      },
+      {
+        path: 'flex-img',
+        name: 'img作为切片',
+        component: () => import('@/views/selflayer/flexImg'),
+        meta: {title: 'img作为切片', icon: 'table'}
+      }
+    ]
+  },
+  {
+    path: '/indoormap',
+    component: Layout,
+    redirect: '/indoormap/addIndoormap',
+    name: '室内地图',
+    meta: {title: '室内地图', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'add-indoormap',
+        name: '叠加室内地图',
+        component: () => import('@/views/indoormap/addIndoormap'),
+        meta: {title: '叠加室内地图', icon: 'table'}
+      },
+      {
+        path: 'indoormap',
+        name: '默认室内图层',
+        component: () => import('@/views/indoormap/indoormap'),
+        meta: {title: '默认室内图层', icon: 'table'}
+      },
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
