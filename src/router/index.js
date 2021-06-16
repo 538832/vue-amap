@@ -506,6 +506,39 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/thirdlayer',
+    component: Layout,
+    redirect: '/thirdlayer/terrain-mask',
+    name: '三方标准图层',
+    meta: {title: '三方标准图层', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'terrain-mask',
+        name: '卫星图+掩模',
+        component: () => import('@/views/thirdlayer/terrainMask'),
+        meta: {title: '卫星图+掩模', icon: 'table'}
+      },
+      {
+        path: 'wmts',
+        name: 'WMTS',
+        component: () => import('@/views/thirdlayer/wmts'),
+        meta: {title: 'WMTS', icon: 'table'}
+      },
+      {
+        path: 'custom-grid-map',
+        name: 'XYZ栅格图层',
+        component: () => import('@/views/thirdlayer/customGridMap'),
+        meta: {title: 'XYZ栅格图层', icon: 'table'}
+      },
+      {
+        path: 'functile',
+        name: '函数加载栅格图',
+        component: () => import('@/views/thirdlayer/functile'),
+        meta: {title: '函数加载栅格图', icon: 'table'}
+      },
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
