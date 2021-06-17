@@ -808,6 +808,56 @@ export const constantRoutes = [
             meta: {title: '灵活的点标记', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'mass-markers',
+        component: () => import('@/views/coverings/massMarkers/index'), // Parent router-view
+        name: '海量点标记',
+        meta: {title: '海量点标记', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'labelmarker',
+            name: '标注和标注图层',
+            component: () => import('@/views/coverings/massMarkers/labelmarker/index'),
+            meta: {title: '标注和标注图层', icon: 'table'}
+          },
+          {
+            path: 'labelmarker-text',
+            name: '标注和标注图层-文字标注',
+            component: () => import('@/views/coverings/massMarkers/labelmarkerText/index'),
+            meta: {title: '标注和标注图层-文字标注', icon: 'table'}
+          },
+          {
+            path: 'labelmarker-mass',
+            name: '标注和标注图层-海量点',
+            component: () => import('@/views/coverings/massMarkers/labelmarkerMass/index'),
+            meta: {title: '标注和标注图层-海量点', icon: 'table'}
+          },
+          {
+            path: 'massmarks',
+            name: '海量点 MassMarks',
+            component: () => import('@/views/coverings/massMarkers/massmarks/index'),
+            meta: {title: '海量点 MassMarks', icon: 'table'}
+          },
+          {
+            path: 'markerclusterer',
+            name: '点聚合',
+            component: () => import('@/views/coverings/massMarkers/markerclusterer/index'),
+            meta: {title: '点聚合', icon: 'table'}
+          },
+          {
+            path: 'markerclusterer-weight',
+            name: '点聚合（包含权重信息）',
+            component: () => import('@/views/coverings/massMarkers/markerclustererWeight/index'),
+            meta: {title: '点聚合（包含权重信息）', icon: 'table'}
+          },
+          {
+            path: 'marker-indexcluster2',
+            name: '按索引聚合',
+            component: () => import('@/views/coverings/massMarkers/markerIndexcluster2/index'),
+            meta: {title: '按索引聚合', icon: 'table'}
+          }
+        ]
       }
     ]
   },
