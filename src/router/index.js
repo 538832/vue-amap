@@ -97,7 +97,7 @@ export const constantRoutes = [
       },
       /* 地图属性 */
       {
-        path: '/getMapzoom',
+        path: 'getMapzoom',
         component: () => import('@/views/map/map/index'), // Parent router-view
         name: '地图属性',
         meta: {title: '地图属性', icon: 'el-icon-s-help'},
@@ -172,7 +172,7 @@ export const constantRoutes = [
       },
       /* 覆盖物与图层管理 */
       {
-        path: '/map-componets',
+        path: 'map-componets',
         component: () => import('@/views/map/mapComponets/index'), // Parent router-view
         name: '覆盖物与图层管理',
         meta: {title: '覆盖物与图层管理', icon: 'el-icon-s-help'},
@@ -199,7 +199,7 @@ export const constantRoutes = [
       },
       /* 自定义地图样式 */
       {
-        path: '/map/personalized-map',
+        path: 'personalized-map',
         component: () => import('@/views/map/personalizedMap/index'), // Parent router-view
         name: '自定义地图样式',
         meta: {title: '自定义地图样式', icon: 'el-icon-s-help'},
@@ -720,6 +720,92 @@ export const constantRoutes = [
             name: '跨日期线绘制',
             component: () => import('@/views/coverings/common/crossDateLineOverlays'),
             meta: {title: '跨日期线绘制', icon: 'table'}
+          }
+        ]
+      },
+      {
+        path: 'marker',
+        component: () => import('@/views/coverings/marker/index'), // Parent router-view
+        name: '点标记',
+        meta: {title: '点标记', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'marker-content',
+            name: '点标记',
+            component: () => import('@/views/coverings/marker/markerContent/index'),
+            meta: {title: '点标记', icon: 'table'}
+          },
+          {
+            path: 'marker-anchor',
+            name: '点标记锚点',
+            component: () => import('@/views/coverings/marker/markerAnchor/index'),
+            meta: {title: '点标记锚点', icon: 'table'}
+          },
+          {
+            path: 'text',
+            name: '文本标记',
+            component: () => import('@/views/coverings/marker/text/index'),
+            meta: {title: '文本标记', icon: 'table'}
+          },
+          {
+            path: 'custom-icon',
+            name: '自定义图标',
+            component: () => import('@/views/coverings/marker/customIcon/index'),
+            meta: {title: '自定义图标', icon: 'table'}
+          },
+          {
+            path: 'circlemarker',
+            name: '圆点标记',
+            component: () => import('@/views/coverings/marker/circlemarker/index'),
+            meta: {title: '圆点标记', icon: 'table'}
+          },
+          {
+            path: 'custom-icon-content',
+            name: '自定义点标记内容',
+            component: () => import('@/views/coverings/marker/customIconContent/index'),
+            meta: {title: '自定义点标记内容', icon: 'table'}
+          },
+          {
+            path: 'set-marker-text-label',
+            name: '设置点标注的文本标签',
+            component: () => import('@/views/coverings/marker/setMarkerTextLabel/index'),
+            meta: {title: '设置点标注的文本标签', icon: 'table'}
+          },
+          {
+            path: 'adaptive-show-multiple-markers',
+            name: '自适应显示多个点标记',
+            component: () => import('@/views/coverings/marker/adaptiveShowMultipleMarkers/index'),
+            meta: {title: '自适应显示多个点标记', icon: 'table'}
+          },
+          {
+            path: 'delete-multiple-markers',
+            name: '删除多个点标记',
+            component: () => import('@/views/coverings/marker/deleteMultipleMarkers/index'),
+            meta: {title: '删除多个点标记', icon: 'table'}
+          },
+          {
+            path: 'delet-specified-marker-from-multiple-markers',
+            name: '从多个点中删除指定点',
+            component: () => import('@/views/coverings/marker/deletSpecifiedMarkerFromMultipleMarkers/index'),
+            meta: {title: '从多个点中删除指定点', icon: 'table'}
+          },
+          {
+            path: 'set-marker-draggable',
+            name: '设置点的拖拽效果',
+            component: () => import('@/views/coverings/marker/setMarkerDraggable/index'),
+            meta: {title: '设置点的拖拽效果', icon: 'table'}
+          },
+          {
+            path: 'replaying-historical-running-data',
+            name: '轨迹回放',
+            component: () => import('@/views/coverings/marker/replayingHistoricalRunningData/index'),
+            meta: {title: '轨迹回放', icon: 'table'}
+          },
+          {
+            path: 'elastic-marker',
+            name: '灵活的点标记',
+            component: () => import('@/views/coverings/marker/elasticMarker/index'),
+            meta: {title: '灵活的点标记', icon: 'table'}
           }
         ]
       }
