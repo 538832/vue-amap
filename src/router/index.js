@@ -904,6 +904,44 @@ export const constantRoutes = [
             meta: {title: '3D 控制罗盘', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'infowindow',
+        component: () => import('@/views/coverings/infowindow/index'), // Parent router-view
+        name: '信息窗体',
+        meta: {title: '信息窗体', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'default-style-infowindow',
+            name: '默认样式信息窗体',
+            component: () => import('@/views/coverings/infowindow/defaultStyleInfowindow/index'),
+            meta: {title: '默认样式信息窗体', icon: 'table'}
+          },
+          {
+            path: 'infowindow-anchor',
+            name: '信息窗体锚点',
+            component: () => import('@/views/coverings/infowindow/infowindowAnchor/index'),
+            meta: {title: '信息窗体锚点', icon: 'table'}
+          },
+          {
+            path: 'custom-style-infowindow',
+            name: '自定义样式信息窗体',
+            component: () => import('@/views/coverings/infowindow/customStyleInfowindow/index'),
+            meta: {title: '自定义样式信息窗体', icon: 'table'}
+          },
+          {
+            path: 'infowindow-event',
+            name: '信息窗体内的事件交互',
+            component: () => import('@/views/coverings/infowindow/infowindowEvent/index'),
+            meta: {title: '信息窗体内的事件交互', icon: 'table'}
+          },
+          {
+            path: 'add-infowindows-to-multiple-markers',
+            name: '给多个点添加信息窗体',
+            component: () => import('@/views/coverings/infowindow/addInfowindowsToMultipleMarkers/index'),
+            meta: {title: '给多个点添加信息窗体', icon: 'table'}
+          }
+        ]
       }
     ]
   },
