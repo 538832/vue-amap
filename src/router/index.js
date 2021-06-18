@@ -858,6 +858,26 @@ export const constantRoutes = [
             meta: {title: '按索引聚合', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'overlaygroup',
+        component: () => import('@/views/coverings/overlaygroup/index'), // Parent router-view
+        name: '覆盖物群组',
+        meta: {title: '覆盖物群组', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'overlaygroup-add-remove',
+            name: '添加/移除',
+            component: () => import('@/views/coverings/overlaygroup/overlaygroupAddRemove/index'),
+            meta: {title: '添加/移除', icon: 'table'}
+          },
+          {
+            path: 'change-ovelaygroup',
+            name: '批量修改属性',
+            component: () => import('@/views/coverings/overlaygroup/changeOvelaygroup/index'),
+            meta: {title: '批量修改属性', icon: 'table'}
+          }
+        ]
       }
     ]
   },
