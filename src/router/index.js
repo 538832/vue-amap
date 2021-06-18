@@ -878,6 +878,32 @@ export const constantRoutes = [
             meta: {title: '批量修改属性', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'mapbar',
+        component: () => import('@/views/coverings/mapbar/index'), // Parent router-view
+        name: '地图控件',
+        meta: {title: '地图控件', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'mapcontrol-control-add-remove',
+            name: '地图控件的添加和移除',
+            component: () => import('@/views/coverings/mapbar/mapcontrolControlAddRemove/index'),
+            meta: {title: '地图控件的添加和移除', icon: 'table'}
+          },
+          {
+            path: 'toolbar-litestyle',
+            name: '简易缩放按钮',
+            component: () => import('@/views/coverings/mapbar/toolbarLitestyle/index'),
+            meta: {title: '简易缩放按钮', icon: 'table'}
+          },
+          {
+            path: 'controlbar',
+            name: '3D 控制罗盘',
+            component: () => import('@/views/coverings/mapbar/controlbar/index'),
+            meta: {title: '3D 控制罗盘', icon: 'table'}
+          }
+        ]
       }
     ]
   },
