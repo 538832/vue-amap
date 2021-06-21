@@ -968,6 +968,92 @@ export const constantRoutes = [
             meta: {title: '自定义右键菜单', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'overlayers',
+        component: () => import('@/views/coverings/overlayers/index'), // Parent router-view
+        name: '矢量图形',
+        meta: {title: '矢量图形', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'polyline-draw',
+            name: '折线的绘制',
+            component: () => import('@/views/coverings/overlayers/polylineDraw/index'),
+            meta: {title: '折线的绘制', icon: 'table'}
+          },
+          {
+            path: 'beziercurve-draw-and-edit',
+            name: '弧线的绘制和编辑',
+            component: () => import('@/views/coverings/overlayers/beziercurveDrawAndEdit/index'),
+            meta: {title: '弧线的绘制和编辑', icon: 'table'}
+          },
+          {
+            path: 'polygon-draw',
+            name: '多边形的绘制',
+            component: () => import('@/views/coverings/overlayers/polygonDraw/index'),
+            meta: {title: '多边形的绘制', icon: 'table'}
+          },
+          {
+            path: 'rectangle-draw-and-edit',
+            name: '矩形的绘制和编辑',
+            component: () => import('@/views/coverings/overlayers/rectangleDrawAndEdit/index'),
+            meta: {title: '矩形的绘制和编辑', icon: 'table'}
+          },
+          {
+            path: 'circle-draw-and-edit',
+            name: '圆的绘制',
+            component: () => import('@/views/coverings/overlayers/circleDrawAndEdit/index'),
+            meta: {title: '圆的绘制', icon: 'table'}
+          },
+          {
+            path: 'ellipse-draw-and-edit',
+            name: '椭圆的绘制和编辑',
+            component: () => import('@/views/coverings/overlayers/ellipseDrawAndEdit/index'),
+            meta: {title: '椭圆的绘制和编辑', icon: 'table'}
+          },
+          {
+            path: 'overlay-draw',
+            name: '绘制矢量图形',
+            component: () => import('@/views/coverings/overlayers/overlayDraw/index'),
+            meta: {title: '绘制矢量图形', icon: 'table'}
+          },
+          {
+            path: 'cross-date-line',
+            name: '跨日期线绘制',
+            component: () => import('@/views/coverings/overlayers/crossDateLine/index'),
+            meta: {title: '跨日期线绘制', icon: 'table'}
+          },
+          {
+            path: 'draw-ground-line',
+            name: '绘制大地线',
+            component: () => import('@/views/coverings/overlayers/drawGroundLine/index'),
+            meta: {title: '绘制大地线', icon: 'table'}
+          },
+          {
+            path: 'cover',
+            name: '遮罩',
+            component: () => import('@/views/coverings/overlayers/cover/index'),
+            meta: {title: '遮罩', icon: 'table'}
+          },
+          {
+            path: 'geojson',
+            name: 'GeoJSON',
+            component: () => import('@/views/coverings/overlayers/geojson/index'),
+            meta: {title: 'GeoJSON', icon: 'table'}
+          },
+          {
+            path: 'overlaygroup',
+            name: 'OverlayGroup批处理矢量图形',
+            component: () => import('@/views/coverings/overlayers/overlaygroup/index'),
+            meta: {title: 'OverlayGroup批处理矢量图形', icon: 'table'}
+          },
+          {
+            path: 'linedir',
+            name: '自定义折线方向箭头',
+            component: () => import('@/views/coverings/overlayers/linedir/index'),
+            meta: {title: '自定义折线方向箭头', icon: 'table'}
+          }
+        ]
       }
     ]
   },
