@@ -1054,6 +1054,32 @@ export const constantRoutes = [
             meta: {title: '自定义折线方向箭头', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'overlay-editor',
+        component: () => import('@/views/coverings/overlayEditor/index'), // Parent router-view
+        name: '矢量覆盖物编辑',
+        meta: {title: '矢量覆盖物编辑', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'polyline-editor',
+            name: '折线编辑器',
+            component: () => import('@/views/coverings/overlayEditor/polylineEditor/index'),
+            meta: {title: '折线编辑器', icon: 'table'}
+          },
+          {
+            path: 'polygon-editor',
+            name: '多边形编辑器',
+            component: () => import('@/views/coverings/overlayEditor/polygonEditor/index'),
+            meta: {title: '多边形编辑器', icon: 'table'}
+          },
+          {
+            path: 'polygon-editor-avoidpolygon',
+            name: '多边形编辑器吸附功能',
+            component: () => import('@/views/coverings/overlayEditor/polygonEditorAvoidpolygon/index'),
+            meta: {title: '多边形编辑器吸附功能', icon: 'table'}
+          }
+        ]
       }
     ]
   },
