@@ -942,6 +942,32 @@ export const constantRoutes = [
             meta: {title: '给多个点添加信息窗体', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'contextmenu',
+        component: () => import('@/views/coverings/contextmenu/index'), // Parent router-view
+        name: '右键菜单',
+        meta: {title: '右键菜单', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'default-contextmenu',
+            name: '默认右键菜单',
+            component: () => import('@/views/coverings/contextmenu/defaultContextmenu/index'),
+            meta: {title: '默认右键菜单', icon: 'table'}
+          },
+          {
+            path: 'custom-contextmenu',
+            name: '自定义右键菜单',
+            component: () => import('@/views/coverings/contextmenu/customContextmenu/index'),
+            meta: {title: '自定义右键菜单', icon: 'table'}
+          },
+          {
+            path: 'add-contextmenu-to-overlayer',
+            name: '自定义右键菜单',
+            component: () => import('@/views/coverings/contextmenu/addContextmenuToOverlayer/index'),
+            meta: {title: '自定义右键菜单', icon: 'table'}
+          }
+        ]
       }
     ]
   },
