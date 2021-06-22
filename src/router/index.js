@@ -1086,7 +1086,7 @@ export const constantRoutes = [
   {
     path: '/search-services',
     component: Layout,
-    redirect: '/search-services/common',
+    redirect: '/search-services/searchServices',
     name: '搜索服务',
     meta: {title: '搜索服务', icon: 'el-icon-s-help'},
     children: [
@@ -1166,6 +1166,59 @@ export const constantRoutes = [
           }
         ]
       },
+    ]
+  },
+  {
+    path: '/pathPlanning-services',
+    component: Layout,
+    redirect: '/pathPlanning-services/driving-route',
+    name: '路线规划服务',
+    meta: {title: '路线规划服务', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'driving-route',
+        component: () => import('@/views/pathPlanningServices/drivingRoute/index'), // Parent router-view
+        name: '驾车路线规划',
+        meta: {title: '驾车路线规划', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'plan-route-according-to-lnglat',
+            name: '位置经纬度 + 驾车规划路线',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/planRouteAccordingToLnglat'),
+            meta: {title: '位置经纬度 + 驾车规划路线', icon: 'table'}
+          },
+          {
+            path: 'plan-route-according-to-name',
+            name: '地点关键字 + 驾车路线规划',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/planRouteAccordingToName'),
+            meta: {title: '地点关键字 + 驾车路线规划', icon: 'table'}
+          },
+          {
+            path: 'driving-data',
+            name: '位置经纬度 + 获取驾车规划数据',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/drivingData'),
+            meta: {title: '位置经纬度 + 获取驾车规划数据', icon: 'table'}
+          },
+          {
+            path: 'driving-custom',
+            name: '规划结果 + 驾车路线绘制',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/drivingCustom'),
+            meta: {title: '规划结果 + 驾车路线绘制', icon: 'table'}
+          },
+          {
+            path: 'route-can-be-dragged',
+            name: '可拖拽驾车路线规划',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/routeCanBeDragged'),
+            meta: {title: '可拖拽驾车路线规划', icon: 'table'}
+          },
+          {
+            path: 'waypoint',
+            name: '途经点',
+            component: () => import('@/views/pathPlanningServices/drivingRoute/waypoint'),
+            meta: {title: '途经点', icon: 'table'}
+          }
+        ]
+      }
     ]
   },
   {
