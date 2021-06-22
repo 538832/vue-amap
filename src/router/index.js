@@ -1256,6 +1256,70 @@ export const constantRoutes = [
           }
         ]
       },
+      {
+        path: 'riding-route',
+        component: () => import('@/views/pathPlanningServices/ridingRoute/index'), // Parent router-view
+        name: '骑行路径规划',
+        meta: {title: '骑行路径规划', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'plan-route-according-to-lnglat',
+            name: '位置经纬度 + 骑行路线规划',
+            component: () => import('@/views/pathPlanningServices/ridingRoute/planRouteAccordingToLnglat'),
+            meta: {title: '位置经纬度 + 骑行路线规划', icon: 'table'}
+          },
+          {
+            path: 'plan-route-according-to-name',
+            name: '地点关键字 + 骑行路线规划',
+            component: () => import('@/views/pathPlanningServices/ridingRoute/planRouteAccordingToName'),
+            meta: {title: '地点关键字 + 骑行路线规划', icon: 'table'}
+          },
+          {
+            path: 'riding-data',
+            name: '位置经纬度 + 获取骑行规划数据',
+            component: () => import('@/views/pathPlanningServices/ridingRoute/ridingData'),
+            meta: {title: '位置经纬度 + 获取骑行规划数据', icon: 'table'}
+          },
+          {
+            path: 'riding-custom',
+            name: '规划结果 + 骑行路线绘制',
+            component: () => import('@/views/pathPlanningServices/ridingRoute/ridingCustom'),
+            meta: {title: '规划结果 + 骑行路线绘制', icon: 'table'}
+          }
+        ]
+      },
+      {
+        path: 'bus-search',
+        component: () => import('@/views/pathPlanningServices/busSearch/index'), // Parent router-view
+        name: '公交路线规划',
+        meta: {title: '公交路线规划', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'plan-route-according-to-lnglat',
+            name: '位置经纬度 + 公交路线规划',
+            component: () => import('@/views/pathPlanningServices/busSearch/planRouteAccordingToLnglat'),
+            meta: {title: '位置经纬度 + 公交路线规划', icon: 'table'}
+          },
+          {
+            path: 'plan-route-according-to-name',
+            name: '地点关键字 + 公交路线规划',
+            component: () => import('@/views/pathPlanningServices/busSearch/planRouteAccordingToName'),
+            meta: {title: '地点关键字 + 公交路线规划', icon: 'table'}
+          },
+          {
+            path: 'bus-data',
+            name: '位置经纬度 + 获取公交规划数据',
+            component: () => import('@/views/pathPlanningServices/busSearch/busData'),
+            meta: {title: '位置经纬度 + 获取公交规划数据', icon: 'table'}
+          },
+          {
+            path: 'bus-custom',
+            name: '规划结果 + 公交路线绘制',
+            component: () => import('@/views/pathPlanningServices/busSearch/busCustom'),
+            meta: {title: '规划结果 + 公交路线绘制', icon: 'table'}
+          }
+        ]
+      }
     ]
   },
   {
