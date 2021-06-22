@@ -54,8 +54,6 @@ export const constantRoutes = [
       meta: {title: 'Dashboard', icon: 'dashboard'}
     }]
   },
-
-
   {
     path: '/map',
     component: Layout,
@@ -1218,7 +1216,46 @@ export const constantRoutes = [
             meta: {title: '途经点', icon: 'table'}
           }
         ]
-      }
+      },
+      {
+        path: 'truck-route',
+        component: () => import('@/views/pathPlanningServices/truckRoute/index'), // Parent router-view
+        //redirect: '/pathPlanning-services/truck-route',
+        name: '货车路线规划',
+        meta: {title: '货车路线规划', icon: 'el-icon-s-help'},
+      },
+      {
+        path: 'walking-route',
+        component: () => import('@/views/pathPlanningServices/walkingRoute/index'), // Parent router-view
+        name: '步行路线规划',
+        meta: {title: '步行路线规划', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'plan-route-according-to-lnglat',
+            name: '位置经纬度 + 步行路线规划',
+            component: () => import('@/views/pathPlanningServices/walkingRoute/planRouteAccordingToLnglat'),
+            meta: {title: '位置经纬度 + 步行路线规划', icon: 'table'}
+          },
+          {
+            path: 'plan-route-according-to-name',
+            name: '地点关键字 + 步行路线规划',
+            component: () => import('@/views/pathPlanningServices/walkingRoute/planRouteAccordingToName'),
+            meta: {title: '地点关键字 + 步行路线规划', icon: 'table'}
+          },
+          {
+            path: 'walk-custom',
+            name: '规划结果 + 步行路线绘制',
+            component: () => import('@/views/pathPlanningServices/walkingRoute/walkCustom'),
+            meta: {title: '规划结果 + 步行路线绘制', icon: 'table'}
+          },
+          {
+            path: 'walk-data',
+            name: '位置经纬度 + 获取步行规划数据',
+            component: () => import('@/views/pathPlanningServices/walkingRoute/walkData'),
+            meta: {title: '位置经纬度 + 获取步行规划数据', icon: 'table'}
+          }
+        ]
+      },
     ]
   },
   {
