@@ -1084,6 +1084,91 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/search-services',
+    component: Layout,
+    redirect: '/search-services/common',
+    name: '搜索服务',
+    meta: {title: '搜索服务', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'input',
+        component: () => import('@/views/searchServices/input/index'), // Parent router-view
+        name: '输入提示',
+        meta: {title: '输入提示', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'get-input-data',
+            name: '获取输入提示数据',
+            component: () => import('@/views/searchServices/input/getInputData'),
+            meta: {title: '获取输入提示数据', icon: 'table'}
+          },
+          {
+            path: 'input-prompt',
+            name: '输入提示',
+            component: () => import('@/views/searchServices/input/inputPrompt'),
+            meta: {title: '输入提示', icon: 'table'}
+          }
+        ]
+      },
+      {
+        path: 'poi-search',
+        component: () => import('@/views/searchServices/poiSearch/index'), // Parent router-view
+        name: 'POI搜索',
+        meta: {title: 'POI搜索', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'get-search-data',
+            name: '获取输入提示数据',
+            component: () => import('@/views/searchServices/poiSearch/getSearchData'),
+            meta: {title: '获取输入提示数据', icon: 'table'}
+          },
+          {
+            path: 'keywords-search',
+            name: '关键字搜索',
+            component: () => import('@/views/searchServices/poiSearch/keywordsSearch'),
+            meta: {title: '关键字搜索', icon: 'table'}
+          },
+          {
+            path: 'multi-keywords-search',
+            name: '多关键字检索',
+            component: () => import('@/views/searchServices/poiSearch/multiKeywordsSearch'),
+            meta: {title: '多关键字检索', icon: 'table'}
+          },
+          {
+            path: 'around-search',
+            name: '周边搜索',
+            component: () => import('@/views/searchServices/poiSearch/aroundSearch'),
+            meta: {title: '周边搜索', icon: 'table'}
+          },
+          {
+            path: 'polygon-search',
+            name: '多边形搜索',
+            component: () => import('@/views/searchServices/poiSearch/polygonSearch'),
+            meta: {title: '多边形搜索', icon: 'table'}
+          },
+          {
+            path: 'details-search',
+            name: '详情查询',
+            component: () => import('@/views/searchServices/poiSearch/detailsSearch'),
+            meta: {title: '详情查询', icon: 'table'}
+          },
+          {
+            path: 'search-after-enter-prompt',
+            name: '输入提示后查询',
+            component: () => import('@/views/searchServices/poiSearch/searchAfterEnterPrompt'),
+            meta: {title: '输入提示后查询', icon: 'table'}
+          },
+          {
+            path: 'keywords-search-and-self-presentation',
+            name: '根据搜索结果添加 marker',
+            component: () => import('@/views/searchServices/poiSearch/keywordsSearchAndSelfPresentation'),
+            meta: {title: '根据搜索结果添加 marker', icon: 'table'}
+          }
+        ]
+      },
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
@@ -1093,6 +1178,7 @@ export const constantRoutes = [
       }
     ]
   },
+
   // 404 page must be placed at the end !!!
   {path: '*', redirect: '/404', hidden: true}
 ]
