@@ -1323,6 +1323,47 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/other-lbs-services',
+    component: Layout,
+    redirect: '/other-lbs-services/geocoder',
+    name: '其他LBS服务',
+    meta: {title: '其他LBS服务', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'geocoder',
+        component: () => import('@/views/otherLbsServices/geocoder/index'), // Parent router-view
+        name: '地理编码',
+        meta: {title: '地理编码', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'geocoding',
+            name: '地理编码（地址 -> 坐标）',
+            component: () => import('@/views/otherLbsServices/geocoder/geocoding'),
+            meta: {title: '地理编码（地址 -> 坐标）', icon: 'table'}
+          },
+          {
+            path: 'multi-geo',
+            name: '批量地理编码',
+            component: () => import('@/views/otherLbsServices/geocoder/multiGeo'),
+            meta: {title: '批量地理编码', icon: 'table'}
+          },
+          {
+            path: 'regeocoding',
+            name: '逆地理编码（坐标 -> 地址）',
+            component: () => import('@/views/otherLbsServices/geocoder/regeocoding'),
+            meta: {title: '逆地理编码（坐标 -> 地址）', icon: 'table'}
+          },
+          {
+            path: 'multi-regeo',
+            name: '批量逆地理编码',
+            component: () => import('@/views/otherLbsServices/geocoder/multiRegeo'),
+            meta: {title: '批量逆地理编码', icon: 'table'}
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
