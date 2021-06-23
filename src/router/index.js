@@ -1395,6 +1395,32 @@ export const constantRoutes = [
           }
         ]
       },
+      {
+        path: 'bus-info',
+        component: () => import('@/views/otherLbsServices/busInfo/index'), // Parent router-view
+        name: '公交信息查询',
+        meta: {title: '公交信息查询', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'search-bus-station',
+            name: '公交站点查询',
+            component: () => import('@/views/otherLbsServices/busInfo/searchBusStation'),
+            meta: {title: '公交站点查询', icon: 'table'}
+          },
+          {
+            path: 'search-bus-route',
+            name: '公交站点查询',
+            component: () => import('@/views/otherLbsServices/busInfo/searchBusRoute'),
+            meta: {title: '公交站点查询', icon: 'table'}
+          },
+          {
+            path: 'arrival-range',
+            name: '公交到达圈',
+            component: () => import('@/views/otherLbsServices/busInfo/arrivalRange'),
+            meta: {title: '公交到达圈', icon: 'table'}
+          }
+        ]
+      },
     ]
   },
   {
