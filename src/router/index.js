@@ -1421,6 +1421,39 @@ export const constantRoutes = [
           }
         ]
       },
+      {
+        path: 'location',
+        component: () => import('@/views/otherLbsServices/location/index'), // Parent router-view
+        name: '定位',
+        meta: {title: '定位', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'get-city-name-by-ip-location',
+            name: 'IP城市定位',
+            component: () => import('@/views/otherLbsServices/location/getCityNameByIpLocation'),
+            meta: {title: 'IP城市定位', icon: 'table'}
+          },
+          {
+            path: 'map-is-initially-loaded-into-the-current-city',
+            name: '地图初始IP城市定位',
+            component: () => import('@/views/otherLbsServices/location/mapIsInitiallyLoadedIntoTheCurrentCity'),
+            meta: {title: '地图初始IP城市定位', icon: 'table'}
+          },
+          {
+            path: 'browser-location',
+            name: '浏览器精确定位',
+            component: () => import('@/views/otherLbsServices/location/browserLocation'),
+            meta: {title: '浏览器精确定位', icon: 'table'}
+          },
+          {
+            path: 'custom-location-icon',
+            name: '浏览器精确定位-定位点自定义',
+            component: () => import('@/views/otherLbsServices/location/customLocationIcon'),
+            meta: {title: '浏览器精确定位-定位点自定义', icon: 'table'}
+          }
+        ]
+      },
+
     ]
   },
   {
