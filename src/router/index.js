@@ -1453,7 +1453,20 @@ export const constantRoutes = [
           }
         ]
       },
-
+      {
+        path: 'weather-forecast',
+        component: () => import('@/views/otherLbsServices/weatherForecast/index'), // Parent router-view
+        name: '天气预报',
+        meta: {title: '天气预报', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'weather-forecast',
+            name: 'IP城市定位',
+            component: () => import('@/views/otherLbsServices/weatherForecast/weatherForecast'),
+            meta: {title: 'IP城市定位', icon: 'table'}
+          }
+        ]
+      }
     ]
   },
   {
