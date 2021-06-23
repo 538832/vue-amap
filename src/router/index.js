@@ -1360,7 +1360,27 @@ export const constantRoutes = [
             meta: {title: '批量逆地理编码', icon: 'table'}
           }
         ]
-      }
+      },
+      {
+        path: 'district-search',
+        component: () => import('@/views/otherLbsServices/districtSearch/index'), // Parent router-view
+        name: '行政区划查询',
+        meta: {title: '行政区划查询', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'draw-district-boundaries',
+            name: '行政区边界查询',
+            component: () => import('@/views/otherLbsServices/districtSearch/drawDistrictBoundaries'),
+            meta: {title: '行政区边界查询', icon: 'table'}
+          },
+          {
+            path: 'city-drop-down-list',
+            name: '下属行政区查询',
+            component: () => import('@/views/otherLbsServices/districtSearch/cityDropDownList'),
+            meta: {title: '下属行政区查询', icon: 'table'}
+          }
+        ]
+      },
     ]
   },
   {
