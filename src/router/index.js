@@ -1381,6 +1381,20 @@ export const constantRoutes = [
           }
         ]
       },
+      {
+        path: 'grasp',
+        component: () => import('@/views/otherLbsServices/grasp/index'), // Parent router-view
+        name: '轨迹纠偏',
+        meta: {title: '轨迹纠偏', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'grasp-driving',
+            name: '驾车轨迹纠偏',
+            component: () => import('@/views/otherLbsServices/grasp/graspDriving'),
+            meta: {title: '驾车轨迹纠偏', icon: 'table'}
+          }
+        ]
+      },
     ]
   },
   {
