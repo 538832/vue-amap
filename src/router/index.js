@@ -1545,6 +1545,47 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/geometric-calculation',
+    component: Layout,
+    redirect: '/geometric-calculation/calcutation',
+    name: '几何计算',
+    meta: {title: '几何计算', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'calcutation',
+        component: () => import('@/views/geometricCalculation/calcutation/index'), // Parent router-view
+        name: '距离/面积计算',
+        meta: {title: '距离/面积计算', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'calculate-distance-between-two-markers',
+            name: '两点间距离',
+            component: () => import('@/views/geometricCalculation/calcutation/calculateDistanceBetweenTwoMarkers'),
+            meta: {title: '两点间距离', icon: 'table'}
+          },
+          {
+            path: 'calcute-distance-from-marker-to-line',
+            name: '点到线的距离',
+            component: () => import('@/views/geometricCalculation/calcutation/calcuteDistanceFromMarkerToLine'),
+            meta: {title: '点到线的距离', icon: 'table'}
+          },
+          {
+            path: 'path-length',
+            name: '路径长度',
+            component: () => import('@/views/geometricCalculation/calcutation/pathLength'),
+            meta: {title: '路径长度', icon: 'table'}
+          },
+          {
+            path: 'ring-area',
+            name: '区域面积',
+            component: () => import('@/views/geometricCalculation/calcutation/ringArea'),
+            meta: {title: '区域面积', icon: 'table'}
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
