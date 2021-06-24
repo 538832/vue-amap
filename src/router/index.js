@@ -1608,16 +1608,30 @@ export const constantRoutes = [
             meta: {title: '面与面的几何关系', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'calculation-other',
+        component: () => import('@/views/geometricCalculation/calculationOther/index'), // Parent router-view
+        name: '其他',
+        meta: {title: '其他', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'is-clockwise',
+            name: '路径是否顺时针',
+            component: () => import('@/views/geometricCalculation/calculationOther/isClockwise'),
+            meta: {title: '路径是否顺时针', icon: 'table'}
+          }
+        ]
       }
     ]
   },
   {
-    path: 'external-link',
+    path: '用生命研发技术',
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: {title: 'External Link', icon: 'link'}
+        path: 'https://blog.csdn.net/qq_37242720',
+        meta: {title: '用生命研发技术', icon: 'link'}
       }
     ]
   },
