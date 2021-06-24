@@ -1470,6 +1470,47 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/auxiliary-interface',
+    component: Layout,
+    redirect: '/auxiliary-interfac/mouse-operate-map',
+    name: '辅助接口',
+    meta: {title: '辅助接口', icon: 'el-icon-s-help'},
+    children: [
+      {
+        path: 'mouse-operate-map',
+        component: () => import('@/views/auxiliaryInterface/mouseOperateMap/index'), // Parent router-view
+        name: '地理编码',
+        meta: {title: '地理编码', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'mouse-draw-overlayers',
+            name: '鼠标工具-绘制覆盖物',
+            component: () => import('@/views/auxiliaryInterface/mouseOperateMap/mouseDrawOverlayers'),
+            meta: {title: '鼠标工具-绘制覆盖物', icon: 'table'}
+          },
+          {
+            path: 'pull-box-enlarged-map',
+            name: '鼠标工具-拉框缩放',
+            component: () => import('@/views/auxiliaryInterface/mouseOperateMap/pullBoxEnlargedMap'),
+            meta: {title: '鼠标工具-拉框缩放', icon: 'table'}
+          },
+          {
+            path: 'measure-area',
+            name: '鼠标工具-距离面积测量',
+            component: () => import('@/views/auxiliaryInterface/mouseOperateMap/measureArea'),
+            meta: {title: '鼠标工具-距离面积测量', icon: 'table'}
+          },
+          {
+            path: 'measure-distance',
+            name: '测距工具',
+            component: () => import('@/views/auxiliaryInterface/mouseOperateMap/measureDistance'),
+            meta: {title: '测距工具', icon: 'table'}
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [
