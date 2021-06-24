@@ -1479,8 +1479,8 @@ export const constantRoutes = [
       {
         path: 'mouse-operate-map',
         component: () => import('@/views/auxiliaryInterface/mouseOperateMap/index'), // Parent router-view
-        name: '地理编码',
-        meta: {title: '地理编码', icon: 'el-icon-s-help'},
+        name: '工具类',
+        meta: {title: '工具类', icon: 'el-icon-s-help'},
         children: [
           {
             path: 'mouse-draw-overlayers',
@@ -1505,6 +1505,26 @@ export const constantRoutes = [
             name: '测距工具',
             component: () => import('@/views/auxiliaryInterface/mouseOperateMap/measureDistance'),
             meta: {title: '测距工具', icon: 'table'}
+          }
+        ]
+      },
+      {
+        path: 'utils',
+        component: () => import('@/views/auxiliaryInterface/utils/index'), // Parent router-view
+        name: '辅助库',
+        meta: {title: '辅助库', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'browser',
+            name: '浏览器环境',
+            component: () => import('@/views/auxiliaryInterface/utils/browser'),
+            meta: {title: '浏览器环境', icon: 'table'}
+          },
+          {
+            path: 'util-color',
+            name: '颜色转换',
+            component: () => import('@/views/auxiliaryInterface/utils/utilColor'),
+            meta: {title: '颜色转换', icon: 'table'}
           }
         ]
       }

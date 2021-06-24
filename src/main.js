@@ -15,6 +15,10 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+//JSON
+import JsonViewer from 'vue-json-viewer'
+Vue.use(JsonViewer)
+
 // 高德地图
 /*
 import AMapLoader from '@amap/amap-jsapi-loader';
