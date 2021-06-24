@@ -1582,6 +1582,32 @@ export const constantRoutes = [
             meta: {title: '区域面积', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'relationship-judgment',
+        component: () => import('@/views/geometricCalculation/relationshipJudgment/index'), // Parent router-view
+        name: '关系判断',
+        meta: {title: '关系判断', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'is-point-on-segment',
+            name: '两点间距离',
+            component: () => import('@/views/geometricCalculation/relationshipJudgment/isPointOnSegment'),
+            meta: {title: '两点间距离', icon: 'table'}
+          },
+          {
+            path: 'point-surface-relation',
+            name: '点是否在多边形内',
+            component: () => import('@/views/geometricCalculation/relationshipJudgment/pointSurfaceRelation'),
+            meta: {title: '点是否在多边形内', icon: 'table'}
+          },
+          {
+            path: 'ringring',
+            name: '面与面的几何关系',
+            component: () => import('@/views/geometricCalculation/relationshipJudgment/ringring'),
+            meta: {title: '面与面的几何关系', icon: 'table'}
+          }
+        ]
       }
     ]
   },
