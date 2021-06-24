@@ -1527,6 +1527,20 @@ export const constantRoutes = [
             meta: {title: '颜色转换', icon: 'table'}
           }
         ]
+      },
+      {
+        path: 'call-amap',
+        component: () => import('@/views/auxiliaryInterface/callAmap/index'), // Parent router-view
+        name: '调起高德地图',
+        meta: {title: '调起高德地图', icon: 'el-icon-s-help'},
+        children: [
+          {
+            path: 'call-amap',
+            name: '调起高德地图',
+            component: () => import('@/views/auxiliaryInterface/callAmap/callAmap'),
+            meta: {title: '调起高德地图', icon: 'table'}
+          }
+        ]
       }
     ]
   },
