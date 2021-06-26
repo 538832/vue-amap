@@ -1,7 +1,7 @@
 <template>
   <div class="app-container" :style="{ height: windowHeight - 50 + 'px' }">
     <div id="container"></div>
-    <!--TODO: 热度 高度的曲线太复杂, 先暂停研究，后期处理-->
+    <!--TODO: 热度 高度的曲线太复杂, 暂时不做-->
     <!--<div class="graph">
       <h2>heightBezier:</h2>
       <input type="text" id="bezierInp" readonly="readonly"/>
@@ -16,8 +16,6 @@
 
 <script>
   import {heatmapData} from '@/utils/amap/heatmapData'
-   // import {bezierHelper} from '@/utils/amap/bezier'
-
   export default {
     name: "index",
     data() {
@@ -41,16 +39,17 @@
     methods: {
       initAMap() {
         let that = this;
-        let map = new AMap.Map('container', {
+        let map = new AMap.Map("container", {
           viewMode: '3D',
           pitch: 70,
           resizeEnable: true,
           center: [116.418261, 39.921984],
           zoom: 11.5
         });
+
         map.addControl(new AMap.ControlBar({}));
 
-        var heatmapOpts = {
+        let heatmapOpts = {
           //3d 相关的参数
           '3d': {
             //热度转高度的曲线控制参数，可以利用左侧的控制面板获取
@@ -62,52 +61,12 @@
         };
 
         //初始化heatmap对象
-        var heatmap = new AMap.HeatMap(map, heatmapOpts);
+        let heatmap = new AMap.HeatMap(map, heatmapOpts);
 
         heatmap.setDataSet({
           data: heatmapData,
           max: 100
         });
-
-        //控制左侧的曲线控制面板
-        (function () {
-
-          var bezierInp = document.getElementById('bezierInp');
-
-          function onBezierUpdate(val) {
-
-            bezierInp.value = (val);
-
-            heatmapOpts['3d'].heightBezier = val;
-
-            if (heatmap) {
-              heatmap.setOptions(heatmapOpts);
-            }
-          }
-
-          //bezierHelper.setBezier(heatmapOpts['3d'].heightBezier);
-
-          //bezierInp.value = (bezierHelper.getBezier());
-
-          //window.onBezierUpdate = onBezierUpdate;
-
-        })();
-      },
-
-      //判断浏览区是否支持canvas
-      isSupportCanvas() {
-        var elem = document.createElement('canvas');
-        return !!(elem.getContext && elem.getContext('2d'));
-      },
-
-      //显示热力图
-      showHeatmap() {
-        this.heatmap.show();
-      },
-
-      //关闭热力图
-      hideHeatmap() {
-        this.heatmap.hide();
       }
     }
   }

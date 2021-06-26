@@ -45,7 +45,12 @@
         // 创建点覆盖物
         this.marker = new AMap.Marker({
           position: new AMap.LngLat(116.39, 39.92),
-          icon: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+          //icon: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+          icon: new AMap.Icon({
+            image: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+            size: new AMap.Size(25, 34),  //图标所处区域大小
+            imageSize: new AMap.Size(25, 34)//图标大小
+          }),
           offset: new AMap.Pixel(-13, -30)
         });
 

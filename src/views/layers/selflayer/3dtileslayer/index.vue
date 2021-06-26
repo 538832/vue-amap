@@ -5,9 +5,6 @@
 </template>
 
 <script>
-   //import * as GLTFLoader from '@/utils/amap/GLTFLoader.117.min.js'
-   //import * as THREE from '@/utils/amap/three.117'
-
   export default {
     name: "index",
     data() {
@@ -33,17 +30,16 @@
         let map = new AMap.Map('container', {
           resizeEnable: true,
           viewMode: '3D',
-          center: [121.502325,31.238165],
+          center: [121.502325, 31.238165],
           pitch: 90,
           rotation: -50,
           zoom: 16,
           mapStyle: 'amap://styles/darkblue', // 加载自定义样式
           features: ['bg', 'road']
         });
-
+        
         // 创建 3DTilesLayer
-        // TODO: 错误信息：THREE is not defined 暂时没有解决思路，后期解决
-        /*let tiles = new AMap['3DTilesLayer']({
+        let tiles = new AMap['3DTilesLayer']({
           map: map,
           url: 'https://a.amap.com/jsapi_demos/static/data3d/single.json', // 3d Tiles 入口文件
           style: {
@@ -52,7 +48,7 @@
               intensity: 2, // 设置光照强度
             }
           }
-        });*/
+        });
       }
     }
   }

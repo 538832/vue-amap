@@ -1,7 +1,7 @@
 <template>
   <div class="app-container" :style="{ height: windowHeight - 50 + 'px' }">
     <div id="container">
-      等待官方更新
+      官网待更新
     </div>
   </div>
 </template>

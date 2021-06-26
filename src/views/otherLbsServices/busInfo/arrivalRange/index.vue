@@ -1,30 +1,34 @@
 <template>
   <div class="app-container" :style="{ height: windowHeight - 50 + 'px' }">
     <div id="container"></div>
-    <div class="input-card" style='width:18rem;'>
-      <label style='color:grey'>公交到达圈查询</label>
+    <div class="input-card">
       <div class="input-item">
+        <label style='color:grey'>公交到达圈查询</label>
         <el-input placeholder="请输入线路名称" size="mini" v-model="lnglat">
           <template slot="prepend">出发位置</template>
         </el-input>
       </div>
 
-      <label style='color:grey'>时长(分钟)</label>
       <div class="input-item">
-        <el-slider v-model="time" input-size="mini" :min="1" :max="45"></el-slider>
+        <label style='color:grey'>时长(分钟)</label>
+        <el-slider style="margin: 0 auto" v-model="time" @change="getArriveRange" input-size="mini" :min="1"
+                   :max="45"></el-slider>
       </div>
 
       <div class="input-item">
-        <label>出行方式</label>
-        <el-select v-model="travelMode" size="mini" @change="getArriveRange" placeholder="请选择出行方式">
+        <label style='color:grey'>出行方式</label>
+        <el-select v-model="travelMode" style="width: 100%;display: block" size="mini" @change="getArriveRange"
+                   placeholder="请选择出行方式">
           <el-option label="地铁+公交" value="SUBWAY,BUS"></el-option>
           <el-option label="地铁" value="SUBWAY"></el-option>
           <el-option label="公交" value="BUS"></el-option>
         </el-select>
       </div>
 
-      <el-button round type="mini" @click="getArriveRange">查询</el-button>
-      <el-button round type="mini" @click="clear">清除</el-button>
+      <div class="btn">
+        <el-button style="width: 100px;" round type="mini" @click="getArriveRange">查询</el-button>
+        <el-button style="width: 100px;" round type="mini" @click="clear">清除</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +45,7 @@
         time: 30,
         travelMode: 'SUBWAY,BUS',
         arrivalRange: null,
+        polygons: [],
         centerMarker: null
       }
     },
@@ -61,34 +66,16 @@
           center: [116.397428, 39.90923],
           zoom: 10
         });
-
         this.map.on('click', this.getLnglat);
-
-
-        var isChanged = false;
-        // $(function () {
-        //   $('.single-slider').jRange({
-        //     onstatechange: getArriveRange,
-        //     from: 1,
-        //     to: 45,
-        //     step: 1,
-        //     scale: [1, 15, 30, 45],
-        //     format: '%s',
-        //     width: 400,
-        //     showLabels: true,
-        //     showScale: true
-        //   });
-        // });
-        //TODO：官网上面单独拉出来也没有效果，后期再研究
         this.getArriveRange();
       },
 
       clear() {
-        this.map.remove(polygons)
+        this.map.remove(this.polygons)
       },
 
       getLnglat(e) {
-        var lnglat = e.lnglat;
+        let lnglat = e.lnglat;
         this.lnglat = e.lnglat.toString()
         this.getArriveRange();
       },
@@ -107,18 +94,21 @@
       //添加多边形覆盖物
       getArriveRange() {
         let that = this;
-        if (that.arrivalRange == null) {
+        if (!that.arrivalRange) {
           that.arrivalRange = new AMap.ArrivalRange()
         }
+        let lnglat = that.lnglat.split(',');
+        let t = that.time;
+        let v = that.travelMode;
 
-        that.addCenterMarker(that.lnglat);
+        that.addCenterMarker(lnglat);
 
-        that.arrivalRange.search(that.lnglat, that.time, function (status, result) {
+        that.arrivalRange.search(lnglat, t, function (status, result) {
           that.map.remove(that.polygons);
           that.polygons = [];
           if (result.bounds) {
-            for (var i = 0; i < result.bounds.length; i++) {
-              var polygon = new AMap.Polygon({
+            for (let i = 0; i < result.bounds.length; i++) {
+              let polygon = new AMap.Polygon({
                 fillColor: "#3366FF",
                 fillOpacity: "0.4",
                 strokeColor: "#00FF00",
@@ -132,7 +122,7 @@
             that.map.setFitView();
           }
         }, {
-          policy: that.travelMode
+          policy: v
         });
       }
 
@@ -159,9 +149,20 @@
     bottom: 30px;
     right: 30px;
     padding: 10px;
+    width: 300px;
   }
 
   .input-card .input-item {
-    margin: 10px 0;
+    margin: 10px;
+  }
+
+  .input-card .input-item label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    text-align: center;
   }
 </style>

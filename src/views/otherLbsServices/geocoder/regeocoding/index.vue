@@ -1,6 +1,7 @@
 <template>
   <div class="app-container" :style="{ height: windowHeight - 50 + 'px' }">
     <div id="container"></div>
+    <div class='info'>输入或点击地图获取经纬度。</div>
     <div class="input-card">
       <label style='color:grey'>逆地理编码，根据经纬度获取地址信息</label>
       <div class="input-item">
@@ -51,7 +52,8 @@
         });
 
         that.map.on('click', function (e) {
-          that.lnglat = e.lnglat;
+          //console.log(e.lnglat)
+          that.lnglat = e.lnglat.lng+ ',' + e.lnglat.lat;
           that.regeoCode();
         })
       },
@@ -67,6 +69,7 @@
 
       regeoCode() {
         let that = this;
+        that.map.clearMap();
         let lnglat = that.lnglat.split(',');
         let marker = new AMap.Marker();
         let geocoder = new AMap.Geocoder({
@@ -100,11 +103,19 @@
   }
 
   .input-card {
-    position: fixed;
+    position: absolute;
     background-color: white;
     max-height: 90%;
     overflow-y: auto;
     bottom: 30px;
+    right: 30px;
+    padding: 10px;
+  }
+
+  .info {
+    position: absolute;
+    background-color: white;
+    top: 30px;
     right: 30px;
     padding: 10px;
   }

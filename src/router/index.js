@@ -961,9 +961,9 @@ export const constantRoutes = [
           },
           {
             path: 'add-contextmenu-to-overlayer',
-            name: '自定义右键菜单',
+            name: '覆盖物添加右键菜单',
             component: () => import('@/views/coverings/contextmenu/addContextmenuToOverlayer/index'),
-            meta: {title: '自定义右键菜单', icon: 'table'}
+            meta: {title: '覆盖物添加右键菜单', icon: 'table'}
           }
         ]
       },
