@@ -91,8 +91,8 @@
             <span>捐赠支持</span>
           </div>
           <div class="body" style="text-align: center">
-            <el-image :src="wx" style="width: 324px;height: 444px;display: inline-block" fit="contain"></el-image>
-            <el-image :src="zfb" style="width: 324px;height: 444px;display: inline-block" fit="contain"></el-image>
+            <el-image :src="wx" style="width: 324px;height: 360px;display: inline-block;margin-right: 50px" fit="contain"></el-image>
+            <el-image :src="zfb" style="width: 324px;height: 360px;display: inline-block" fit="contain"></el-image>
             <span style="display: block; height: 30px; margin-top: 20px;">你可以请作者喝杯咖啡表示鼓励</span>
           </div>
         </el-card>
