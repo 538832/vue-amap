@@ -4,9 +4,9 @@
 
 # 一、项目介绍
 
-本项目是基于vue-admin-template为模板，开发的vue版本的高德地图JSAPI2.0。编写原因是因为我曾经开发时地图遇到很多的问题，包括如何从html转为vue，还有就是开发时遇到的一些坑（当时使用的是百度地图，后期也用到高德地图）。因此，利用工作之余的时间写了一个vue版本的高德地图示例中心，由于本人是一名Java开发，前端水平有限，写的不好的地方，还望各位前端大佬口下留情。
+基于vue-admin-template为模板，开发的vue版本的高德地图JSAPI2.0。编写原因是因为我曾经开发时遇到很多的问题，还有就是开发时遇到的一些坑（当时使用的是百度地图，后期也用到高德地图）。因此，利用工作之余的时间写了一个vue版本的高德地图示例中心，由于本人是一名Java开发，前端水平有限，写的不好的地方，还望各位前端大佬口下留情。
 
-本文参考高德地图JSAPI2.0示例中心开发，示例地址：[https://lbs.amap.com/demo/list/jsapi-v2](https://lbs.amap.com/demo/list/jsapi-v2)，如有侵权，请联系邮箱：538832@qq.com删除。
+项目参考高德地图JSAPI2.0示例中心开发，示例地址：[https://lbs.amap.com/demo/list/jsapi-v2](https://lbs.amap.com/demo/list/jsapi-v2)，如有侵权，请联系邮箱：538832@qq.com删除。
 
 高德地图官网参考手册：[https://lbs.amap.com/api/jsapi-v2/documentation](https://lbs.amap.com/api/jsapi-v2/documentation)
 
