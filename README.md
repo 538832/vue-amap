@@ -10,46 +10,22 @@
 
 高德地图官网参考手册：[https://lbs.amap.com/api/jsapi-v2/documentation](https://lbs.amap.com/api/jsapi-v2/documentation)
 
-# 二、vue-admin-template使用介绍
+#  二、在线体验
 
-> 这是一个极简的 vue admin 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint，这些搭建后台必要的东西。
+- admin/111111
 
-[线上地址](http://panjiachen.github.io/vue-admin-template)
+演示地址：[https://amap.java521.com](https://amap.java521.com)
 
-[国内访问](https://panjiachen.gitee.io/vue-admin-template)
+# 三、使用
 
-目前版本为 `v4.0+` 基于 `vue-cli` 进行构建，若你想使用旧版本，可以切换分支到[tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0)，它不依赖 `vue-cli`。
-
-## 2.1、Extra
-
-如果你想要根据用户角色来动态生成侧边栏和 router，你可以使用该分支[permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)
-
-## 2.2、相关项目
-
-- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-
-- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-
-- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
-
-- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
-
-写了一个系列的教程配套文章，如何从零构建后一个完整的后台项目:
-
-- [手摸手，带你用 vue 撸后台 系列一(基础篇)](https://juejin.im/post/59097cd7a22b9d0065fb61d2)
-- [手摸手，带你用 vue 撸后台 系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
-- [手摸手，带你用 vue 撸后台 系列三 (实战篇)](https://juejin.im/post/593121aa0ce4630057f70d35)
-- [手摸手，带你用 vue 撸后台 系列四(vueAdmin 一个极简的后台基础模板,专门针对本项目的文章,算作是一篇文档)](https://juejin.im/post/595b4d776fb9a06bbe7dba56)
-- [手摸手，带你封装一个 vue component](https://segmentfault.com/a/1190000009090836)
-
-## 2.3、Build Setup
+## 3.1、Build Setup
 
 ```bash
 # 克隆项目
-git clone https://github.com/PanJiaChen/vue-admin-template.git
+git clone git clone https://gitee.com/java5219/vue-amap.git
 
 # 进入项目目录
-cd vue-admin-template
+cd vue-amap
 
 # 安装依赖
 npm install
@@ -63,7 +39,7 @@ npm run dev
 
 浏览器访问 [http://localhost:9528](http://localhost:9528)
 
-## 2.4、发布
+## 3.2、发布
 
 ```bash
 # 构建测试环境
@@ -73,7 +49,7 @@ npm run build:stage
 npm run build:prod
 ```
 
-## 2.5、其它
+## 3.3、其它
 
 ```bash
 # 预览发布环境效果
@@ -89,11 +65,9 @@ npm run lint
 npm run lint -- --fix
 ```
 
-更多信息请参考 [使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
+# 四、高德地图
 
-# 三、vue-amap使用就能介绍
-
-## 3.1、  注册成为开发者
+## 4.1、  注册成为开发者
 
 1、注册地址：[https://lbs.amap.com/dev/id/choose](https://lbs.amap.com/dev/id/choose)
 
@@ -104,7 +78,7 @@ npm run lint -- --fix
 
 3、完善开发者信息
 
-## 3.2、进入控制台
+## 4.2、进入控制台
 
 1、控制台地址：[https://console.amap.com/dev/index](https://console.amap.com/dev/index)
 
@@ -114,7 +88,7 @@ npm run lint -- --fix
 
 4、添加key，输入key名称，服务平台选择Web端(JS API）
 
-## 3.3、在项目中使用
+## 4.3、在项目中使用
 
 1、找到public/index.html文件，替换为自己的key
 
@@ -126,7 +100,7 @@ npm run lint -- --fix
   - 创建和使用自定义地图
   - 设置地图的显示内容
 
-## 3.4、使用官方地图样式
+## 4.4、使用官方地图样式
 
 设置地图样式的方式有两种：
 
@@ -151,7 +125,7 @@ npm run lint -- --fix
   map.setMapStyle('amap://styles/whitesmoke');
   ```
 
-## 3.5、使用自定义地图
+## 4.5、使用自定义地图
 
 首先，[注册 ](https://lbs.amap.com/dev/id)成为高德地图开放平台的开发者。然后，在 [自定义地图平台](https://lbs.amap.com/dev/mapstyle/index) 进行创建、编辑、发布后，取得 **地图样式ID**。
 
@@ -178,7 +152,7 @@ npm run lint -- --fix
   map.setMapStyle('amap://styles/地图样式ID');
   ```
 
-## 3.6、设置地图的显示内容
+## 4.6、设置地图的显示内容
 
 通过`setFeatures`方法设置显示部分底图元素：
 
